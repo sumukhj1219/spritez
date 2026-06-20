@@ -1,0 +1,14 @@
+# Local node modules for the package
+node_modules/
+
+# Vite build output folder (generated when you run npm run build)
+dist/
+
+# TypeScript build info cache
+*.tsbuildinfo
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
