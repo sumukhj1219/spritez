@@ -12,7 +12,7 @@
 .soldier-sprite {
   width: var(--frame-width);
   height: var(--frame-height);
-  background-image: url('/sprites/soldier.png'); 
+  background-image: url('https://res.cloudinary.com/doejxvjms/image/upload/q_auto/f_auto/v1782027055/soldier_ceyoxt.png'); 
   background-repeat: no-repeat;
   image-rendering: pixelated; 
   margin: 20px auto;

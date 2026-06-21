@@ -13,13 +13,21 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'ReactWebsiteSprites',
+      formats: ['es', 'cjs'],
       fileName: (format) => `index.${format === 'es' ? 'mjs' : 'js'}`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
       plugins: [preserveDirectives()],
       output: {
-        globals: { react: 'React', 'react-dom': 'ReactDOM' },
+        globals: { 
+          react: 'React', 
+          'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'jsxRuntime' 
+        },
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+        exports: 'named',
       },
     },
   },
