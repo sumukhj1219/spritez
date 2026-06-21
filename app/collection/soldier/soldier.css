@@ -12,7 +12,7 @@
 .soldier-sprite {
   width: var(--frame-width);
   height: var(--frame-height);
-  background-image: url('/sprites/soldier.png'); 
+  background-image: url('https://github.com/sumukhj1219/spritez/sprites/soldier.png'); 
   background-repeat: no-repeat;
   image-rendering: pixelated; 
   margin: 20px auto;

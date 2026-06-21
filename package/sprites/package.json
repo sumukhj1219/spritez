@@ -1,6 +1,6 @@
 {
-  "name": "Spritez",
-  "version": "1.0.0",
+  "name": "react-web-spritez",
+  "version": "1.0.1",
   "description": "An interactive floating pixel sprites for React websites",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
