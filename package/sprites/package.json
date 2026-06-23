@@ -1,23 +1,23 @@
 {
   "name": "react-web-spritez",
-  "version": "1.0.8",
+  "version": "1.0.40",
   "description": "An interactive floating pixel sprites for React websites",
+  "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     },
     "./styles.css": "./dist/react-web-spritez.css"
   },
   "scripts": {
-    "build": "vite build"
+    "build": "vite build && tsc --emitDeclarationOnly --outDir dist --rootDir src"
   },
   "peerDependencies": {
     "react": ">=18.0.0",

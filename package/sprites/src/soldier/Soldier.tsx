@@ -12,7 +12,7 @@ export interface SpriteActions {
   onBoundaryHit?: AnimationStates; 
 }
 
-interface SoldierProps {
+export interface SoldierProps {
   initialX?: number;
   initialY?: number;
   size?: number;
