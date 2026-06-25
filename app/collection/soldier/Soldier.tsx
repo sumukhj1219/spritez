@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react"
 import "./soldier.css"
 
-export type AnimationStates =
+export type SoldierAnimationStates =
   | "idle"
   | "walk"
   | "attack1"
@@ -12,24 +12,24 @@ export type AnimationStates =
   | "hit"
   | "dead"
 
-export interface SpriteActions {
-  onHoverNear?: AnimationStates
-  onClickSprite?: AnimationStates
-  onClickStage?: AnimationStates
-  onBoundaryHit?: AnimationStates
+export interface SoldierSpriteActions {
+  onHoverNear?: SoldierAnimationStates
+  onClickSprite?: SoldierAnimationStates
+  onClickStage?: SoldierAnimationStates
+  onBoundaryHit?: SoldierAnimationStates
 }
 
-interface SoldierProps {
+export interface SoldierProps {
   initialX?: number
   initialY?: number
   size?: number
   attackRange?: number
   damageRange?: number
-  actions?: SpriteActions
+  actions?: SoldierSpriteActions
 }
 
 
-const defaultActions: SpriteActions = {
+const defaultActions: SoldierSpriteActions = {
   onHoverNear: "attack1",
   onClickSprite: "hit",
   onClickStage: "walk",
@@ -63,11 +63,11 @@ const Soldier = (props: SoldierProps) => {
     },
   }
 
-  const [animation, setAnimation] = useState<AnimationStates>("idle")
+  const [animation, setAnimation] = useState<SoldierAnimationStates>("idle")
   const [position, setPosition] = useState({ x: initialX, y: initialY })
   const [isFlipped, setIsFlipped] = useState(false)
 
-  const speeds: Record<AnimationStates, string> = {
+  const speeds: Record<SoldierAnimationStates, string> = {
     idle: "0.8s",
     walk: "0.6s",
     attack1: "0.5s",

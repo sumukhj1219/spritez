@@ -1,10 +1,10 @@
 import React from 'react'
-import Soldier from './collection/soldier/Soldier'
+import NyanCat from './collection/nyan-cat/NyanCat'
 
 const page = () => {
   return (
     <div>
-      <Soldier />
+      <NyanCat />
     </div>
   )
 }

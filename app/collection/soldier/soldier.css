@@ -1,9 +1,6 @@
-:root {
-    --frame-width: 100px;
-    --frame-height: 100px;
-}
-
 .soldier-container {
+  --frame-width: 100px;
+  --frame-height: 100px;
   display: inline-block;
   text-align: center;
   will-change: left, top;
@@ -12,66 +9,76 @@
 .soldier-sprite {
   width: var(--frame-width);
   height: var(--frame-height);
-  background-image: url('/sprites/soldier.png'); 
+  background-image: url('/sprites/soldier.png');
   background-repeat: no-repeat;
-  image-rendering: pixelated; 
+  image-rendering: pixelated;
   margin: auto auto;
 }
 
 
 .soldier-sprite.idle {
-  background-position: 0px 0px; 
+  background-position: 0px 0px;
   animation: anim-6-frame var(--playback-speed) steps(6) infinite;
 }
 
 .soldier-sprite.walk {
-  background-position: 0px calc(-1 * var(--frame-height)); 
+  background-position: 0px calc(-1 * var(--frame-height));
   animation: anim-8-frame var(--playback-speed) steps(8) infinite;
 }
 
 .soldier-sprite.attack1 {
-  background-position: 0px calc(-2 * var(--frame-height)); 
+  background-position: 0px calc(-2 * var(--frame-height));
   animation: anim-6-frame var(--playback-speed) steps(6) infinite;
 }
 
 .soldier-sprite.attack2 {
-  background-position: 0px calc(-3 * var(--frame-height)); 
+  background-position: 0px calc(-3 * var(--frame-height));
   animation: anim-6-frame var(--playback-speed) steps(6) infinite;
 }
 
 .soldier-sprite.attack3 {
-  background-position: 0px calc(-4 * var(--frame-height)); 
+  background-position: 0px calc(-4 * var(--frame-height));
   animation: anim-9-frame var(--playback-speed) steps(9) infinite;
 }
 
 .soldier-sprite.hit {
-  background-position: 0px calc(-5 * var(--frame-height)); 
+  background-position: 0px calc(-5 * var(--frame-height));
   animation: anim-4-frame var(--playback-speed) steps(4) infinite;
 }
 
 .soldier-sprite.dead {
-  background-position: 0px calc(-6 * var(--frame-height)); 
-  animation: anim-3-frame var(--playback-speed) steps(3) forwards; 
+  background-position: 0px calc(-6 * var(--frame-height));
+  animation: anim-3-frame var(--playback-speed) steps(3) forwards;
 }
 
 
 
 @keyframes anim-3-frame {
-  to { background-position-x: calc(-1 * var(--frame-width) * 3); }
+  to {
+    background-position-x: calc(-1 * var(--frame-width) * 3);
+  }
 }
 
 @keyframes anim-4-frame {
-  to { background-position-x: calc(-1 * var(--frame-width) * 4); }
+  to {
+    background-position-x: calc(-1 * var(--frame-width) * 4);
+  }
 }
 
 @keyframes anim-6-frame {
-  to { background-position-x: calc(-1 * var(--frame-width) * 6); }
+  to {
+    background-position-x: calc(-1 * var(--frame-width) * 6);
+  }
 }
 
 @keyframes anim-8-frame {
-  to { background-position-x: calc(-1 * var(--frame-width) * 8); }
+  to {
+    background-position-x: calc(-1 * var(--frame-width) * 8);
+  }
 }
 
 @keyframes anim-9-frame {
-  to { background-position-x: calc(-1 * var(--frame-width) * 9); }
+  to {
+    background-position-x: calc(-1 * var(--frame-width) * 9);
+  }
 }
