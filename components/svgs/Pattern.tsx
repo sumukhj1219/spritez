@@ -11,40 +11,56 @@ const Pattern = () => {
           patternUnits="userSpaceOnUse"
         >
           <rect width="48" height="48" fill="#fafafa" opacity="1" />
-          <g opacity="0.05">
+          <g opacity="0.15">
             {" "}
-            <rect width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect y="12" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect y="24" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect y="36" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="6" y="6" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="6" y="18" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="6" y="30" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="6" y="42" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="12" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="12" y="12" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="12" y="24" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="12" y="36" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="18" y="6" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="18" y="18" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="18" y="30" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="18" y="42" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="24" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="24" y="12" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="24" y="24" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="24" y="36" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="30" y="6" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="30" y="18" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="30" y="30" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="30" y="42" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="36" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="36" y="12" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="36" y="24" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="36" y="36" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="42" y="6" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="42" y="18" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="42" y="30" width="5" height="5" fill="#1C1F21"></rect>{" "}
-            <rect x="42" y="42" width="5" height="5" fill="#1C1F21"></rect>{" "}
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M24 23H23V24H24V23Z"
+              fill="#1C1F21"
+            ></path>{" "}
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M24 47H23V48H24V47Z"
+              fill="#1C1F21"
+            ></path>{" "}
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M47 23H48V24H47V23Z"
+              fill="#1C1F21"
+            ></path>{" "}
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M48 47H47V48H48V47Z"
+              fill="#1C1F21"
+            ></path>{" "}
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12 11H11V12H12V11Z"
+              fill="#1C1F21"
+            ></path>{" "}
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12 35H11V36H12V35Z"
+              fill="#1C1F21"
+            ></path>{" "}
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M35 11H36V12H35V11Z"
+              fill="#1C1F21"
+            ></path>{" "}
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M36 35H35V36H36V35Z"
+              fill="#1C1F21"
+            ></path>{" "}
           </g>
         </pattern>
       </defs>

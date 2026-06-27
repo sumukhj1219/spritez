@@ -1,13 +1,13 @@
 import React from "react";
 import AllCollection from "./collection/AllCollection";
 import ActiveSprite from "@/components/common/ActiveSprite";
+import Heading from "@/components/core/Heading";
 
 const page = () => {
   return (
-    <div className="w-full h-full relative">
-      <div className="max-w-7xl w-full flex items-center justify-center mx-auto">
-        <AllCollection />
-      </div>
+    <div className="max-w-5xl relative flex flex-col items-center justify-center mx-auto md:p-5 md:gap-y-5 gap-y-2 p-2 overflow-hidden">
+      <Heading />
+      <AllCollection />
       <ActiveSprite />
     </div>
   );

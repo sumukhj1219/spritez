@@ -8,14 +8,17 @@ import { useSpriteStore } from "@/store/sprite-store";
 const AllCollection = () => {
   const { addSprite } = useSpriteStore();
   return (
-    <div className="flex items-center justify-center mx-auto max-w-7xl w-full min-h-screen">
-      <div className="grid md:grid-cols-7 grid-cols-4 gap-3">
+    <div className="flex items-center justify-center mx-auto max-w-5xl w-full">
+      <div className="grid md:grid-cols-5 grid-cols-5 gap-2 md:gap-5">
         {COLLECTION_CONFIG.map((item, index) => (
           <SpriteCard
             key={index}
             label={item.label}
             imgSrc={item.imgSrc}
-            onClick={() => addSprite(item)}
+            onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+              e.stopPropagation();
+              addSprite(item);
+            }}
           />
         ))}
       </div>

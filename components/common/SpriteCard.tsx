@@ -1,22 +1,18 @@
 import React from "react";
-import Pattern from "../svgs/Pattern";
 import Image from "next/image";
 
 interface SpriteCardProps {
   label: string;
   imgSrc: string;
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const SpriteCard = ({ label, imgSrc, onClick }: SpriteCardProps) => {
   return (
     <div
-      onClick={onClick}
-      className="flex items-center justify-center mx-auto rounded-lg relative cursor-pointer size-16 bg-secondary border  ring ring-white  hover:shadow-sm shadow-neutral-200 overflow-hidden"
+      onClick={(e) => onClick(e)}
+      className="flex items-center justify-center mx-auto rounded-lg relative cursor-pointer size-16 bg-secondary hover:bg-neutral-200/30 transition-colors duration-300 border ring ring-white hover:shadow-sm shadow-neutral-200 overflow-hidden"
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <Pattern />
-      </div>
       <div className="relative z-10">
         <Image src={imgSrc} alt={label} width={32} height={32} />
       </div>
