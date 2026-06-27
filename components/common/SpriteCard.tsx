@@ -5,11 +5,15 @@ import Image from "next/image";
 interface SpriteCardProps {
   label: string;
   imgSrc: string;
+  onClick: () => void;
 }
 
-const SpriteCard = ({ label, imgSrc }: SpriteCardProps) => {
+const SpriteCard = ({ label, imgSrc, onClick }: SpriteCardProps) => {
   return (
-    <div className="flex items-center justify-center mx-auto rounded-lg relative cursor-pointer size-16 bg-secondary border  ring ring-white  hover:shadow-sm shadow-neutral-200 overflow-hidden">
+    <div
+      onClick={onClick}
+      className="flex items-center justify-center mx-auto rounded-lg relative cursor-pointer size-16 bg-secondary border  ring ring-white  hover:shadow-sm shadow-neutral-200 overflow-hidden"
+    >
       <div className="absolute inset-0 pointer-events-none">
         <Pattern />
       </div>

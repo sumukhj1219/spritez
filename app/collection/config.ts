@@ -4,24 +4,24 @@ import ClaudeMascot from "./claude-mascot/ClaudeMascot";
 
 export type CollectionConfig = {
   label: string;
-  sprite: React.FunctionComponent;
+  component: React.FunctionComponent;
   imgSrc: string;
 };
 
 export const COLLECTION_CONFIG: CollectionConfig[] = [
   {
     label: "Soldier",
-    sprite: Soldier,
+    component: Soldier,
     imgSrc: "/preview/soldier-preview.png",
   },
   {
     label: "Nyan Cat",
-    sprite: NyanCat,
+    component: NyanCat,
     imgSrc: "/preview/nyan-cat-preview.png",
   },
   {
     label: "Claude Mascot",
-    sprite: ClaudeMascot,
+    component: ClaudeMascot,
     imgSrc: "/preview/claude-mascot-preview.png",
   },
 ];
