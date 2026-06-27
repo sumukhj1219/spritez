@@ -1,14 +1,10 @@
 import React from "react";
-import ClaudeMascot from "./collection/claude-mascot/ClaudeMascot";
+import AllCollection from "./collection/AllCollection";
 
 const page = () => {
   return (
-    <div>
-      <ClaudeMascot
-        actions={{
-          onClickSprite: "exercise",
-        }}
-      />
+    <div className="max-w-7xl w-full flex items-center justify-center mx-auto">
+      <AllCollection />
     </div>
   );
 };
