@@ -1,12 +1,16 @@
-import React from 'react'
-import ClaudeMascot from './collection/claude-mascot/ClaudeMascot'
+import React from "react";
+import ClaudeMascot from "./collection/claude-mascot/ClaudeMascot";
 
 const page = () => {
   return (
     <div>
-      <ClaudeMascot />
+      <ClaudeMascot
+        actions={{
+          onClickSprite: "exercise",
+        }}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

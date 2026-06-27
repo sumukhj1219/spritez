@@ -1,57 +1,74 @@
 .claude-mascot-container {
-  --frame-width: 34px;
-  --frame-height: 36px;
-  display: inline-block;
-  text-align: center;
-  will-change: left, top;
+    --frame-width: 34px;
+    --frame-height: 36px;
+    display: inline-block;
+    text-align: center;
+    will-change: left, top;
 }
 
 .claude-mascot-sprite {
-  display: block;
-  width: var(--frame-width);
-  height: var(--frame-height);
-  background-image: url('/sprites/claude-mascot.png');
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  image-rendering: pixelated;
-  transform: translateZ(0);
+    display: block;
+    width: var(--frame-width);
+    height: var(--frame-height);
+    background-image: url("/sprites/claude-mascot.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    image-rendering: pixelated;
+    transform: translateZ(0);
 }
 
 .claude-mascot-sprite.idle {
-  background-position: 0 0;
-  animation: anim-6-frame var(--playback-speed) steps(6, end) infinite;
+    background-position: 0 0;
+    animation: anim-6-frame var(--playback-speed) steps(6, end) infinite;
 }
 
 .claude-mascot-sprite.walk {
-  background-position: calc(-1 * var(--frame-width) * 6) 0;
-  animation: anim-6-frame-walk var(--playback-speed) steps(6, end) infinite;
+    background-position: calc(-1 * var(--frame-width) * 6) 0;
+    animation: anim-6-frame-walk var(--playback-speed) steps(6, end) infinite;
 }
 
 .claude-mascot-sprite.touch {
-  background-position: calc(-1 * var(--frame-width) * 12) 0;
-  animation: anim-6-frame-touch var(--playback-speed) steps(6, end) normal; 
+    background-position: calc(-1 * var(--frame-width) * 12) 0;
+    animation: anim-6-frame-touch var(--playback-speed) steps(6, end) infinite;
 }
 
 .claude-mascot-sprite.hit {
-  background-position: calc(-1 * var(--frame-width) * 18) 0; 
-  animation: anim-6-frame-hit var(--playback-speed) steps(6, end) normal;
+    background-position: calc(-1 * var(--frame-width) * 18) 0;
+    animation: anim-6-frame-hit var(--playback-speed) steps(6, end) infinite;
 }
 
+.claude-mascot-sprite.exercise {
+    background-position: calc(-1 * var(--frame-width) * 24) 0;
+    animation: anim-6-frame-exercise var(--playback-speed) steps(6, end)
+        infinite;
+}
 
 @keyframes anim-6-frame {
-  to { background-position-x: calc(-1 * var(--frame-width) * 6); }
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 6);
+    }
 }
 
 @keyframes anim-6-frame-walk {
-  to { background-position-x: calc(-1 * var(--frame-width) * 12); }
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 12);
+    }
 }
 
 @keyframes anim-6-frame-touch {
-  to { background-position-x: calc(-1 * var(--frame-width) * 18); }
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 18);
+    }
 }
 
 @keyframes anim-6-frame-hit {
-  to { 
-    background-position-x: calc(-1 * var(--frame-width) * 24); 
-  }
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 24);
+    }
+}
+
+@keyframes anim-6-frame-exercise {
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 30);
+    }
 }
