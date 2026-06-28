@@ -1,6 +1,7 @@
 import Soldier from "./soldier/Soldier";
 import NyanCat from "./nyan-cat/NyanCat";
 import ClaudeMascot from "./claude-mascot/ClaudeMascot";
+import GolangGopher from "./golang-gopher/GolangGopher";
 
 export type CollectionConfig = {
   label: string;
@@ -23,5 +24,10 @@ export const COLLECTION_CONFIG: CollectionConfig[] = [
     label: "Claude Mascot",
     component: ClaudeMascot,
     imgSrc: "/preview/claude-mascot-preview.png",
+  },
+  {
+    label: "Golang Gopher",
+    component: GolangGopher,
+    imgSrc: "/preview/golang-gopher-preview.png",
   },
 ];

@@ -1,6 +1,6 @@
 {
   "name": "react-web-spritez",
-  "version": "1.0.56",
+  "version": "1.0.59",
   "description": "An interactive floating pixel sprites for React websites",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
