@@ -15,8 +15,7 @@ const AllCollection = () => {
             key={index}
             label={item.label}
             imgSrc={item.imgSrc}
-            onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-              e.stopPropagation();
+            onClick={() => {
               addSprite(item);
             }}
           />
