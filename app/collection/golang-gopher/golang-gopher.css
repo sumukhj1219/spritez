@@ -34,7 +34,8 @@
 
 .golang-gopher-sprite.hit {
     background-position: calc(-1 * var(--frame-width) * 18) 0;
-    animation: anim-hit var(--playback-speed) steps(18, end) normal;
+    animation: anim-hit-golang-gopher var(--playback-speed) steps(18, end)
+        normal;
 }
 
 @keyframes anim-6-frame {
@@ -55,7 +56,7 @@
     }
 }
 
-@keyframes anim-hit {
+@keyframes anim-hit-golang-gopher {
     from {
         background-position-x: calc(-1 * var(--frame-width) * 18);
     }

@@ -25,3 +25,6 @@ export type {
   GolangGopherActions,
   GolangGopherProps,
 } from "./golang-gopher/GolangGopher";
+
+export { default as Rust } from "./rust/Rust";
+export type { RustAnimationStates, RustActions, RustProps } from "./rust/Rust";
