@@ -17,7 +17,7 @@ export default function BottomSheet({ trigger, children }: BottomSheetProps) {
       <SheetTrigger asChild>{trigger}</SheetTrigger>
       <SheetContent
         side="bottom"
-        className="h-[50vh] border ring ring-white w-full md:w-[45vw] p-4 mx-auto rounded-lg my-5"
+        className="h-[50vh] border ring ring-white md:w-[10vw] w-[68vw] p-2 mx-auto rounded-lg my-5"
       >
         {children}
       </SheetContent>

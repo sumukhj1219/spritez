@@ -1,6 +1,6 @@
 {
-  "name": "spritez-cult",
-  "version": "1.0.62",
+  "name": "react-web-spritez",
+  "version": "1.0.63",
   "description": "An interactive floating pixel sprites for React websites",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -14,7 +14,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./styles.css": "./dist/spritez-cult.css"
+    "./styles.css": "./dist/react-web-spritez.css"
   },
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly --outDir dist --rootDir src"
