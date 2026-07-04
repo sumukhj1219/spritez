@@ -1,22 +1,38 @@
-import React from "react";
-import Image from "next/image";
+"use client";
+
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const Heading = () => {
+  const [copied, setCopied] = useState(false);
+  const command = "npm install react-web-spritez";
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(command);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
+
   return (
-    <div className="flex  mx-auto w-full max-w-5xl flex-col md:py-5 py-5">
+    <div className="flex mx-auto w-full max-w-5xl flex-col md:py-5 py-5">
       <div className="flex gap-x-2">
-        <Image src="/app/logo.svg" alt="applogo" width={32} height={32} />
-        <h1
-          className={`md:text-4xl text-3xl tracking-tight text-left text-primary`}
-        >
+        <h1 className="md:text-4xl text-3xl tracking-tight text-left text-secondary relative">
           ReactWebSpritez
         </h1>
       </div>
-      <h3 className="md:text-sm text-xs text-left text-primary">
+      <h3 className="md:text-sm text-xs text-left text-secondary">
         An interactive floating and pixel sprites for React websites
       </h3>
-      <div className="text-xs p-1 text-left rounded-sm bg-secondary ring ring-white my-5 w-full flex items-center justify-center mx-auto border ">
-        npm install react-web-spritez
+
+      <div className="text-xs p-2 text-left text-secondary my-5 w-full flex items-center justify-between ">
+        <code className="font-mono">{command}</code>
+        <Button onClick={handleCopy} variant={"secondary"} size={"xs"}>
+          {copied ? "Copied!" : "Copy"}
+        </Button>
       </div>
     </div>
   );

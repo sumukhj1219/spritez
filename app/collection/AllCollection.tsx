@@ -15,6 +15,7 @@ const AllCollection = () => {
             key={index}
             label={item.label}
             imgSrc={item.imgSrc}
+            title={item.title}
             onClick={() => {
               addSprite(item);
             }}

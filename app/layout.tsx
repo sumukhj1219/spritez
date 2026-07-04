@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { GeistPixelCircle } from "geist/font/pixel";
+import { comicRelief } from "@/lib/font";
+import Duck from "./collection/duck/Duck";
 
 export const metadata: Metadata = {
   title: "React Web Spritez",
@@ -15,8 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body
-        className={`${GeistPixelCircle.className} min-h-full flex flex-col bg-secondary`}
+        className={`${comicRelief.className} min-h-full flex flex-col bg-[#48A8A8] bg-[url('https://img.itch.zone/aW1nLzEwNDk2NzQ4LnBuZw==/original/eqMZWi.png')] bg-center`}
       >
+        <Duck />
         {children}
       </body>
     </html>
