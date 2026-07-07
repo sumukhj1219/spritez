@@ -28,3 +28,6 @@ export type {
 
 export { default as Rust } from "./rust/Rust";
 export type { RustAnimationStates, RustActions, RustProps } from "./rust/Rust";
+
+export { default as Bun } from "./bun/Bun";
+export type { BunAnimationStates, BunSpriteActions, BunProps } from "./bun/Bun";

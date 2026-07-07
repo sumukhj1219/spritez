@@ -3,6 +3,8 @@ import NyanCat from "./nyan-cat/NyanCat";
 import ClaudeMascot from "./claude-mascot/ClaudeMascot";
 import GolangGopher from "./golang-gopher/GolangGopher";
 import Rust from "./rust/Rust";
+import Bun from "./bun/Bun";
+import Dino from "./dino/Dino";
 
 export type CollectionConfig = {
   label: string;
@@ -35,5 +37,17 @@ export const COLLECTION_CONFIG: CollectionConfig[] = [
     component: Rust,
     imgSrc: "/preview/rust-preview.png",
     title: "Rust",
+  },
+  {
+    label: "Bun",
+    component: Bun,
+    imgSrc: "/preview/bun-preview.png",
+    title: "Bun",
+  },
+  {
+    label: "Dino",
+    component: Dino,
+    imgSrc: "/preview/dino-preview.png",
+    title: "Dino",
   },
 ];

@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import React, { useEffect, useState } from "react"
-import "./nyan-cat.css"
+import React, { useEffect, useState } from "react";
+import "./nyan-cat.css";
 
-export type NyanCatAnimationStates = "idle" | "walk" | "rub"
+export type NyanCatAnimationStates = "idle" | "walk" | "rub";
 
 export interface NyanCatSpriteActions {
-  onClickStage?: NyanCatAnimationStates
-  onClickSprite?: NyanCatAnimationStates
+  onClickStage?: NyanCatAnimationStates;
+  onClickSprite?: NyanCatAnimationStates;
 }
 
 export interface NyanCatProps {
-  initialX?: number
-  initialY?: number
-  size?: number
-  damageRange?: number
-  actions?: NyanCatSpriteActions
+  initialX?: number;
+  initialY?: number;
+  size?: number;
+  damageRange?: number;
+  actions?: NyanCatSpriteActions;
 }
 
 const defaultActions: NyanCatSpriteActions = {
   onClickStage: "walk",
-  onClickSprite: "rub"
-}
+  onClickSprite: "rub",
+};
 
 const defaultNyanCatProps = {
   initialX: 100,
@@ -29,76 +29,70 @@ const defaultNyanCatProps = {
   size: 1,
   damageRange: 20,
   actions: defaultActions,
-}
+};
 
 const NyanCat = (props: NyanCatProps) => {
-  const {
-    initialX,
-    initialY,
-    size,
-    damageRange,
-    actions,
-  } = {
+  const { initialX, initialY, size, damageRange, actions } = {
     ...defaultNyanCatProps,
     ...props,
     actions: {
       ...defaultNyanCatProps.actions,
       ...props.actions,
     },
-  }
+  };
 
-  const [animation, setAnimation] = useState<NyanCatAnimationStates>("idle")
-  const [position, setPosition] = useState({ x: initialX, y: initialY })
-  const [isFlipped, setIsFlipped] = useState(false)
+  const [animation, setAnimation] = useState<NyanCatAnimationStates>("idle");
+  const [position, setPosition] = useState({ x: initialX, y: initialY });
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const speeds: Record<NyanCatAnimationStates, string> = {
     idle: "0.8s",
     walk: "0.6s",
-    rub: "0.8s"
-  }
+    rub: "0.8s",
+  };
 
   useEffect(() => {
-    if (animation === "walk" || !actions.onClickStage) return
+    if (animation === "walk" || !actions.onClickStage) return;
 
     const handleClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
+      const target = e.target as HTMLElement;
       if (target.tagName === "BUTTON" || target.closest(".nyan-cat-sprite"))
-        return
+        return;
 
-      const x = e.clientX - 31
-      const y = e.clientY - 16
+      const x = e.clientX - 32;
+      const y = e.clientY - 32;
 
-      setIsFlipped(x < position.x)
-      setAnimation(actions.onClickStage!)
+      setIsFlipped(x < position.x);
+      setAnimation(actions.onClickStage!);
 
       if (actions.onClickStage === "walk") {
-        setPosition({ x, y })
+        setPosition({ x, y });
       }
-    }
+    };
 
-    window.addEventListener("click", handleClick)
-    return () => window.removeEventListener("click", handleClick)
-  }, [position.x, animation, actions.onClickStage])
+    window.addEventListener("click", handleClick);
+    return () => window.removeEventListener("click", handleClick);
+  }, [position.x, animation, actions.onClickStage]);
 
   const handleTransitionEnd = () => {
-    if (animation !== "walk") return
+    if (animation !== "walk") return;
 
-    const el = document.querySelector(".nyan-cat-container")
+    const el = document.querySelector(".nyan-cat-container");
     if (!el) {
-      setAnimation("idle")
-      return
+      setAnimation("idle");
+      return;
     }
 
-    const rect = el.getBoundingClientRect()
+    const rect = el.getBoundingClientRect();
 
     const hit =
       rect.left < damageRange ||
       rect.right > window.innerWidth - damageRange ||
       rect.top < damageRange ||
-      rect.bottom > window.innerHeight - damageRange
+      rect.bottom > window.innerHeight - damageRange;
 
-    setAnimation(hit ? "idle" : "idle")
-  }
+    setAnimation(hit ? "idle" : "idle");
+  };
 
   return (
     <div
@@ -123,19 +117,19 @@ const NyanCat = (props: NyanCatProps) => {
           pointerEvents: "auto",
         }}
         onClick={(e) => {
-          e.stopPropagation()
+          e.stopPropagation();
           if (actions.onClickSprite) {
-            setAnimation(actions.onClickSprite)
+            setAnimation(actions.onClickSprite);
           }
         }}
         onAnimationEnd={() => {
           if (animation === actions.onClickSprite) {
-            setAnimation("idle")
+            setAnimation("idle");
           }
         }}
       />
     </div>
-  )
-}
+  );
+};
 
-export default NyanCat
+export default NyanCat;

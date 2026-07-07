@@ -1,0 +1,58 @@
+.bun-container {
+    --frame-width: 64px;
+    --frame-height: 64px;
+    display: inline-block;
+    text-align: center;
+    will-change: left, top;
+}
+
+.bun-sprite {
+    display: block;
+    width: var(--frame-width);
+    height: var(--frame-height);
+    background-image: url("https://res.cloudinary.com/doejxvjms/image/upload/v1783185911/bun_w0w4t2.png");
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    margin: auto auto;
+    transform: translateZ(0);
+    transition: none !important;
+}
+
+.bun-sprite.idle {
+    animation: anim-idle var(--playback-speed) steps(6, end) infinite;
+}
+
+.bun-sprite.walk {
+    animation: anim-walk var(--playback-speed) steps(12, end) infinite;
+}
+
+.bun-sprite.touch {
+    animation: anim-touch var(--playback-speed) steps(12, end) normal;
+}
+
+@keyframes anim-idle {
+    from {
+        background-position-x: 0px;
+    }
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 6);
+    }
+}
+
+@keyframes anim-walk {
+    from {
+        background-position-x: calc(-1 * var(--frame-width) * 6);
+    }
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 18);
+    }
+}
+
+@keyframes anim-touch {
+    from {
+        background-position-x: calc(-1 * var(--frame-width) * 6);
+    }
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 18);
+    }
+}
