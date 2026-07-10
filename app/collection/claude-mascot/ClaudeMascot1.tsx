@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import "./claude-mascot.css";
+import "./claude-mascot-1.css";
 import { defaultActions, ClaudeMascotProps, ClaudeMascotAnimationStates } from "@/lib/types";
 
 
@@ -14,7 +14,7 @@ const defaultClaudeMascotProps = {
   actions: defaultActions,
 };
 
-const ClaudeMascot = (props: ClaudeMascotProps) => {
+const ClaudeMascot1 = (props: ClaudeMascotProps) => {
   const { initialX, initialY, size, hoverRange, damageRange, actions } = {
     ...defaultClaudeMascotProps,
     ...props,
@@ -32,7 +32,7 @@ const ClaudeMascot = (props: ClaudeMascotProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const speeds: Record<ClaudeMascotAnimationStates, string> = {
-    idle: "0.8s",
+    idle: "5s",
     walk: "0.6s",
     touch: "0.8s",
     hit: "0.8s",
@@ -50,8 +50,8 @@ const ClaudeMascot = (props: ClaudeMascotProps) => {
       )
         return;
 
-      const x = e.clientX - 16;
-      const y = e.clientY - 16;
+      const x = e.clientX - 32;
+      const y = e.clientY - 32;
 
       setIsFlipped(x < position.x);
       setAnimation(actions.onClickStage!);
@@ -139,4 +139,4 @@ const ClaudeMascot = (props: ClaudeMascotProps) => {
   );
 };
 
-export default ClaudeMascot;
+export default ClaudeMascot1;

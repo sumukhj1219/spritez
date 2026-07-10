@@ -1,6 +1,6 @@
 .claude-mascot-container {
-    --frame-width: 34px;
-    --frame-height: 36px;
+    --frame-width: 64px;
+    --frame-height: 64px;
     display: inline-block;
     text-align: center;
     will-change: left, top;
@@ -10,7 +10,7 @@
     display: block;
     width: var(--frame-width);
     height: var(--frame-height);
-    background-image: url("https://res.cloudinary.com/doejxvjms/image/upload/v1782550875/claude-mascot_kfuny4.png");
+    background-image: url("/sprites/c1.png");
     background-repeat: no-repeat;
     background-position: 0 0;
     image-rendering: pixelated;

@@ -1,7 +1,27 @@
+export type ClaudeMascotAnimationStates =
+  | "idle"
+  | "walk"
+  | "hit"
+  | "touch"
+  | "exercise";
 
-export { default as ClaudeMascot } from "./claude-mascot/ClaudeMascot";
-export type {
-  ClaudeMascotAnimationStates,
-  ClaudeMascotActions,
-  ClaudeMascotProps,
-} from "./claude-mascot/ClaudeMascot";
+export interface ClaudeMascotActions {
+  onClickStage?: ClaudeMascotAnimationStates;
+  onClickSprite?: ClaudeMascotAnimationStates;
+  onHoverNear?: ClaudeMascotAnimationStates;
+}
+
+export interface ClaudeMascotProps {
+  initialX?: number;
+  initialY?: number;
+  size?: number;
+  hoverRange?: number;
+  damageRange?: number;
+  actions?: ClaudeMascotActions;
+}
+
+export const defaultActions: ClaudeMascotActions = {
+  onClickStage: "walk",
+  onClickSprite: "hit",
+  onHoverNear: "touch",
+};

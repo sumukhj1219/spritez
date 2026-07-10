@@ -2,34 +2,8 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import "./claude-mascot.css";
+import { defaultActions, ClaudeMascotProps, ClaudeMascotAnimationStates } from "../index";
 
-export type ClaudeMascotAnimationStates =
-  | "idle"
-  | "walk"
-  | "hit"
-  | "touch"
-  | "exercise";
-
-export interface ClaudeMascotActions {
-  onClickStage?: ClaudeMascotAnimationStates;
-  onClickSprite?: ClaudeMascotAnimationStates;
-  onHoverNear?: ClaudeMascotAnimationStates;
-}
-
-export interface ClaudeMascotProps {
-  initialX?: number;
-  initialY?: number;
-  size?: number;
-  hoverRange?: number;
-  damageRange?: number;
-  actions?: ClaudeMascotActions;
-}
-
-const defaultActions: ClaudeMascotActions = {
-  onClickStage: "walk",
-  onClickSprite: "hit",
-  onHoverNear: "touch",
-};
 
 const defaultClaudeMascotProps = {
   initialX: 100,
@@ -76,8 +50,8 @@ const ClaudeMascot = (props: ClaudeMascotProps) => {
       )
         return;
 
-      const x = e.clientX - 16;
-      const y = e.clientY - 16;
+      const x = e.clientX - 32;
+      const y = e.clientY - 32;
 
       setIsFlipped(x < position.x);
       setAnimation(actions.onClickStage!);

@@ -1,4 +1,4 @@
-import ClaudeMascot from "./claude-mascot/ClaudeMascot";
+import ClaudeMascot1 from "./claude-mascot/ClaudeMascot1";
 
 export type CollectionConfig = {
   label: string;
@@ -9,9 +9,9 @@ export type CollectionConfig = {
 
 export const COLLECTION_CONFIG: CollectionConfig[] = [
   {
-    label: "Claude Mascot",
-    component: ClaudeMascot,
-    imgSrc: "/preview/claude-mascot-preview.png",
-    title: "ClaudeMascot",
+    label: "ClaudeMascot 1",
+    component: ClaudeMascot1,
+    imgSrc: "/preview/c1-preview.png",
+    title: "ClaudeMascot 1",
   },
 ];
