@@ -2,34 +2,8 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import "./claude-mascot.css";
+import { defaultActions, ClaudeMascotProps, ClaudeMascotAnimationStates } from "@/lib/types";
 
-export type ClaudeMascotAnimationStates =
-  | "idle"
-  | "walk"
-  | "hit"
-  | "touch"
-  | "exercise";
-
-export interface ClaudeMascotActions {
-  onClickStage?: ClaudeMascotAnimationStates;
-  onClickSprite?: ClaudeMascotAnimationStates;
-  onHoverNear?: ClaudeMascotAnimationStates;
-}
-
-export interface ClaudeMascotProps {
-  initialX?: number;
-  initialY?: number;
-  size?: number;
-  hoverRange?: number;
-  damageRange?: number;
-  actions?: ClaudeMascotActions;
-}
-
-const defaultActions: ClaudeMascotActions = {
-  onClickStage: "walk",
-  onClickSprite: "hit",
-  onHoverNear: "touch",
-};
 
 const defaultClaudeMascotProps = {
   initialX: 100,

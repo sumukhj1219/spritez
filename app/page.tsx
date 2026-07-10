@@ -5,7 +5,7 @@ import Heading from "@/components/core/Heading";
 
 const page = () => {
   return (
-    <div className="max-w-5xl relative flex flex-col items-center justify-center mx-auto md:p-1 md:gap-y-1 gap-y-2 p-2 overflow-hidden">
+    <div className=" w-full relative flex flex-col  overflow-hidden">
       <Heading />
       <AllCollection />
       <ActiveSprite />
