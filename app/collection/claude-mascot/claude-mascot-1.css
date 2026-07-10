@@ -23,12 +23,12 @@
 }
 
 .claude-mascot-sprite.walk {
-    background-position: calc(-1 * var(--frame-width) * 6) 0;
+    background-position: calc(-1 * var(--frame-width) * 12) 0;
     animation: anim-6-frame-walk var(--playback-speed) steps(6, end) infinite;
 }
 
 .claude-mascot-sprite.touch {
-    background-position: calc(-1 * var(--frame-width) * 12) 0;
+    background-position: calc(-1 * var(--frame-width) * 6) 0;
     animation: anim-6-frame-touch var(--playback-speed) steps(6, end) infinite;
 }
 
@@ -51,13 +51,13 @@
 
 @keyframes anim-6-frame-walk {
     to {
-        background-position-x: calc(-1 * var(--frame-width) * 12);
+        background-position-x: calc(-1 * var(--frame-width) * 18);
     }
 }
 
 @keyframes anim-6-frame-touch {
     to {
-        background-position-x: calc(-1 * var(--frame-width) * 18);
+        background-position-x: calc(-1 * var(--frame-width) * 12);
     }
 }
 
