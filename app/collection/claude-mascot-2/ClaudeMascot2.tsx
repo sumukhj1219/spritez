@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import "./claude-mascot-1.css";
+import "./c2.css";
 import { defaultActions, ClaudeMascotProps, ClaudeMascotAnimationStates } from "@/lib/types";
 
 
@@ -14,7 +14,7 @@ const defaultClaudeMascotProps = {
   actions: defaultActions,
 };
 
-const ClaudeMascot1 = (props: ClaudeMascotProps) => {
+const ClaudeMascot2 = (props: ClaudeMascotProps) => {
   const { initialX, initialY, size, hoverRange, damageRange, actions } = {
     ...defaultClaudeMascotProps,
     ...props,
@@ -32,7 +32,7 @@ const ClaudeMascot1 = (props: ClaudeMascotProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const speeds: Record<ClaudeMascotAnimationStates, string> = {
-    idle: "5s",
+    idle: "0.8s",
     walk: "0.6s",
     touch: "0.8s",
     hit: "0.8s",
@@ -46,7 +46,7 @@ const ClaudeMascot1 = (props: ClaudeMascotProps) => {
       const target = e.target as HTMLElement;
       if (
         target.tagName === "BUTTON" ||
-        target.closest(".claude-mascot-sprite")
+        target.closest(".c2-sprite")
       )
         return;
 
@@ -103,7 +103,7 @@ const ClaudeMascot1 = (props: ClaudeMascotProps) => {
   return (
     <div
       ref={containerRef}
-      className="claude-mascot-container"
+      className="c2-container"
       onTransitionEnd={handleTransitionEnd}
       style={{
         position: "fixed",
@@ -118,7 +118,7 @@ const ClaudeMascot1 = (props: ClaudeMascotProps) => {
       }}
     >
       <div
-        className={`claude-mascot-sprite ${animation}`}
+        className={`c2-sprite ${animation}`}
         style={{
           ["--playback-speed" as any]: speeds[animation],
           pointerEvents: "auto",
@@ -139,4 +139,4 @@ const ClaudeMascot1 = (props: ClaudeMascotProps) => {
   );
 };
 
-export default ClaudeMascot1;
+export default ClaudeMascot2
