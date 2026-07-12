@@ -9,7 +9,7 @@ const AllCollection = () => {
   const { addSprite } = useSpriteStore();
   return (
     <div className="flex sm:px-18 mt-6 px-6 w-full">
-      <div className="grid md:grid-cols-12 grid-cols-6 gap-x-3 md:gap-5">
+      <div className="grid md:grid-cols-12 grid-cols-4 gap-x-3 md:gap-5">
         {COLLECTION_CONFIG.map((item, index) => (
           <SpriteCard
             key={index}

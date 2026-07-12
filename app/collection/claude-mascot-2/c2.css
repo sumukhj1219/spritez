@@ -29,7 +29,7 @@
 
 .c2-sprite.touch {
     background-position: calc(-1 * var(--frame-width) * 6) 0;
-    animation: c2-anim-frame-touch var(--playback-speed) steps(6, end) forwards;
+    animation: c2-anim-frame-touch var(--playback-speed) steps(6, end) infinite;
 }
 
 .c2-sprite.hit {

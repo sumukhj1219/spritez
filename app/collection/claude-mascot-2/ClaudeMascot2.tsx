@@ -130,6 +130,7 @@ const ClaudeMascot2 = (props: ClaudeMascotProps) => {
           }
         }}
         onAnimationEnd={() => {
+              if (animation === "hit") return
           if (animation === actions.onClickSprite) {
             setAnimation("idle");
           }
