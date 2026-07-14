@@ -8,7 +8,7 @@ import ClaudeMascot7 from "./claude-mascot-7/ClaudeMascot7";
 import ClaudeMascot8 from "./claude-mascot-8/ClaudeMascot8";
 import ClaudeMascot9 from "./claude-mascot-9/ClaudeMascot9";
 import ClaudeMascot10 from "./claude-mascot-10/ClaudeMascot10";
-
+import ClaudeMascot11 from "./claude-mascot-11/ClaudeMascot11";
 
 export type CollectionConfig = {
   label: string;
@@ -77,5 +77,11 @@ export const COLLECTION_CONFIG: CollectionConfig[] = [
     component: ClaudeMascot10,
     imgSrc: "/preview/c10-preview.png",
     title: "ClaudeMascot 10",
+  },
+  {
+    label: "ClaudeMascot 11",
+    component: ClaudeMascot11,
+    imgSrc: "/preview/c11-preview.png",
+    title: "ClaudeMascot 11",
   },
 ];
