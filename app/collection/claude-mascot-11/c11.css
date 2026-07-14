@@ -29,7 +29,7 @@
 
 .c11-sprite.touch {
     background-position: calc(-1 * var(--frame-width) * 6) 0;
-    animation: c11-anim-frame-touch var(--playback-speed) steps(6, end) forwards;
+    animation: c11-anim-frame-touch var(--playback-speed) steps(6, end) infinite;
 }
 
 .c11-sprite.hit {
