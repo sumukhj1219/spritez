@@ -10,6 +10,9 @@ import ClaudeMascot9 from "./claude-mascot-9/ClaudeMascot9";
 import ClaudeMascot10 from "./claude-mascot-10/ClaudeMascot10";
 import ClaudeMascot11 from "./claude-mascot-11/ClaudeMascot11";
 import ClaudeMascot12 from "./claude-mascot-12/ClaudeMascot12";
+import ClaudeMascot13 from "./claude-mascot-13/ClaudeMascot13";
+import ClaudeMascot14 from "./claude-mascot-14/ClaudeMascot14";
+
 
 export type CollectionConfig = {
   label: string;
@@ -90,5 +93,17 @@ export const COLLECTION_CONFIG: CollectionConfig[] = [
     component: ClaudeMascot12,
     imgSrc: "/preview/c12-preview.png",
     title: "ClaudeMascot 12",
+  },
+  {
+    label: "ClaudeMascot 13",
+    component: ClaudeMascot13,
+    imgSrc: "/preview/c13-prewiew.png",
+    title: "ClaudeMascot 13",
+  },
+  {
+    label: "ClaudeMascot 14",
+    component: ClaudeMascot14,
+    imgSrc: "/preview/c14-preview.png",
+    title: "ClaudeMascot 14",
   },
 ];
