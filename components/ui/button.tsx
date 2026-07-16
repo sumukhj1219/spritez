@@ -10,8 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-radial-[at_50%_25%] from-primary/80 via-primary/90 inset-shadow-xs inset-shadow-secondary border border-primary to-primary to-90% text-primary-foreground hover:bg-primary/90",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+        secondary: "bg-radial-[at_50%_25%] from-background/80 via-background/90 border shadow border-white to-background to-90% text-secondary-foreground hover:bg-background/90",
       },
       size: {
         default:
