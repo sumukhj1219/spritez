@@ -11,58 +11,86 @@ const Pattern = () => {
           patternUnits="userSpaceOnUse"
         >
           <rect width="48" height="48" fill="#fafafa" opacity="1" />
-          <g opacity="0.15">
-            {" "}
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M24 23H23V24H24V23Z"
-              fill="#1C1F21"
-            ></path>{" "}
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M24 47H23V48H24V47Z"
-              fill="#1C1F21"
-            ></path>{" "}
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M47 23H48V24H47V23Z"
-              fill="#1C1F21"
-            ></path>{" "}
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M48 47H47V48H48V47Z"
-              fill="#1C1F21"
-            ></path>{" "}
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M12 11H11V12H12V11Z"
-              fill="#1C1F21"
-            ></path>{" "}
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M12 35H11V36H12V35Z"
-              fill="#1C1F21"
-            ></path>{" "}
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M35 11H36V12H35V11Z"
-              fill="#1C1F21"
-            ></path>{" "}
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M36 35H35V36H36V35Z"
-              fill="#1C1F21"
-            ></path>{" "}
+          <g opacity="0.05">
+            <g clipPath="url(#card-grid-clip)">
+              <rect width="4" height="4" fill="#110000"></rect>
+              <rect y="16" width="4" height="4" fill="#110000"></rect>
+              <rect y="32" width="4" height="4" fill="#110000"></rect>
+              <rect x="4" y="4" width="4" height="4" fill="#110000"></rect>
+              <rect x="4" y="12" width="4" height="4" fill="#110000"></rect>
+              <rect x="4" y="20" width="4" height="4" fill="#110000"></rect>
+              <rect x="4" y="28" width="4" height="4" fill="#110000"></rect>
+              <rect x="4" y="36" width="4" height="4" fill="#110000"></rect>
+              <rect x="4" y="44" width="4" height="4" fill="#110000"></rect>
+              <rect x="8" width="4" height="4" fill="#110000"></rect>
+              <rect x="8" y="8" width="4" height="4" fill="#110000"></rect>
+              <rect x="8" y="16" width="4" height="4" fill="#110000"></rect>
+              <rect x="8" y="24" width="4" height="4" fill="#110000"></rect>
+              <rect x="8" y="32" width="4" height="4" fill="#110000"></rect>
+              <rect x="8" y="40" width="4" height="4" fill="#110000"></rect>
+              <rect y="8" width="4" height="4" fill="#110000"></rect>
+              <rect y="24" width="4" height="4" fill="#110000"></rect>
+              <rect y="40" width="4" height="4" fill="#110000"></rect>
+              <rect x="12" y="12" width="4" height="4" fill="#110000"></rect>
+              <rect x="20" y="12" width="4" height="4" fill="#110000"></rect>
+              <rect x="28" y="12" width="4" height="4" fill="#110000"></rect>
+              <rect x="36" y="12" width="4" height="4" fill="#110000"></rect>
+              <rect x="44" y="12" width="4" height="4" fill="#110000"></rect>
+              <rect x="12" y="20" width="4" height="4" fill="#110000"></rect>
+              <rect x="20" y="20" width="4" height="4" fill="#110000"></rect>
+              <rect x="28" y="20" width="4" height="4" fill="#110000"></rect>
+              <rect x="36" y="20" width="4" height="4" fill="#110000"></rect>
+              <rect x="44" y="20" width="4" height="4" fill="#110000"></rect>
+              <rect x="12" y="28" width="4" height="4" fill="#110000"></rect>
+              <rect x="20" y="28" width="4" height="4" fill="#110000"></rect>
+              <rect x="28" y="28" width="4" height="4" fill="#110000"></rect>
+              <rect x="36" y="28" width="4" height="4" fill="#110000"></rect>
+              <rect x="44" y="28" width="4" height="4" fill="#110000"></rect>
+              <rect x="12" y="36" width="4" height="4" fill="#110000"></rect>
+              <rect x="20" y="36" width="4" height="4" fill="#110000"></rect>
+              <rect x="28" y="36" width="4" height="4" fill="#110000"></rect>
+              <rect x="36" y="36" width="4" height="4" fill="#110000"></rect>
+              <rect x="44" y="36" width="4" height="4" fill="#110000"></rect>
+              <rect x="12" y="44" width="4" height="4" fill="#110000"></rect>
+              <rect x="20" y="44" width="4" height="4" fill="#110000"></rect>
+              <rect x="28" y="44" width="4" height="4" fill="#110000"></rect>
+              <rect x="36" y="44" width="4" height="4" fill="#110000"></rect>
+              <rect x="44" y="44" width="4" height="4" fill="#110000"></rect>
+              <rect x="12" y="4" width="4" height="4" fill="#110000"></rect>
+              <rect x="20" y="4" width="4" height="4" fill="#110000"></rect>
+              <rect x="28" y="4" width="4" height="4" fill="#110000"></rect>
+              <rect x="36" y="4" width="4" height="4" fill="#110000"></rect>
+              <rect x="44" y="4" width="4" height="4" fill="#110000"></rect>
+              <rect x="16" y="16" width="4" height="4" fill="#110000"></rect>
+              <rect x="24" y="16" width="4" height="4" fill="#110000"></rect>
+              <rect x="32" y="16" width="4" height="4" fill="#110000"></rect>
+              <rect x="40" y="16" width="4" height="4" fill="#110000"></rect>
+              <rect x="16" y="24" width="4" height="4" fill="#110000"></rect>
+              <rect x="24" y="24" width="4" height="4" fill="#110000"></rect>
+              <rect x="32" y="24" width="4" height="4" fill="#110000"></rect>
+              <rect x="40" y="24" width="4" height="4" fill="#110000"></rect>
+              <rect x="16" y="32" width="4" height="4" fill="#110000"></rect>
+              <rect x="24" y="32" width="4" height="4" fill="#110000"></rect>
+              <rect x="32" y="32" width="4" height="4" fill="#110000"></rect>
+              <rect x="40" y="32" width="4" height="4" fill="#110000"></rect>
+              <rect x="16" y="40" width="4" height="4" fill="#110000"></rect>
+              <rect x="24" y="40" width="4" height="4" fill="#110000"></rect>
+              <rect x="32" y="40" width="4" height="4" fill="#110000"></rect>
+              <rect x="40" y="40" width="4" height="4" fill="#110000"></rect>
+              <rect x="16" y="8" width="4" height="4" fill="#110000"></rect>
+              <rect x="24" y="8" width="4" height="4" fill="#110000"></rect>
+              <rect x="32" y="8" width="4" height="4" fill="#110000"></rect>
+              <rect x="40" y="8" width="4" height="4" fill="#110000"></rect>
+              <rect x="16" width="4" height="4" fill="#110000"></rect>
+              <rect x="24" width="4" height="4" fill="#110000"></rect>
+              <rect x="32" width="4" height="4" fill="#110000"></rect>
+              <rect x="40" width="4" height="4" fill="#110000"></rect>
+            </g>
           </g>
         </pattern>
+        <clipPath id="card-grid-clip">
+          <rect width="48" height="48" fill="white"></rect>
+        </clipPath>
       </defs>
       <rect width="100%" height="100%" fill="url(#card-grid)" />
     </svg>

@@ -1,13 +1,17 @@
 "use client";
 
-import React from "react";
-import { COLLECTION_CONFIG } from "./config";
+import React, { useState } from "react";
+import { COLLECTION_CONFIG, CollectionConfig } from "./config";
 import SpriteCard from "@/components/common/SpriteCard";
 import { useSpriteStore } from "@/store/sprite-store";
-import ViewButton from "@/components/common/ViewButton";
+import SpriteDetailSheet from "@/components/common/SpriteDetailSheet";
 
 const AllCollection = () => {
   const { addSprite } = useSpriteStore();
+  const [selectedSprite, setSelectedSprite] = useState<CollectionConfig | null>(
+    null,
+  );
+  const [detailOpen, setDetailOpen] = useState(false);
 
   return (
     <div className="w-full px-4 sm:px-8 md:px-12 lg:px-18 mt-6">
@@ -26,13 +30,20 @@ const AllCollection = () => {
                 onClick={(e: React.MouseEvent<HTMLDivElement>) => {
                   e.stopPropagation();
                   addSprite(item);
+                  setSelectedSprite(item);
+                  setDetailOpen(true);
                 }}
               />
-              <ViewButton title={item.label} />
             </div>
           );
         })}
       </div>
+
+      <SpriteDetailSheet
+        open={detailOpen}
+        onOpenChange={setDetailOpen}
+        sprite={selectedSprite}
+      />
     </div>
   );
 };
