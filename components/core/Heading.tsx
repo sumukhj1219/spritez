@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const Heading = () => {
   const [copied, setCopied] = useState(false);
-  const command = "npm install react-web-spritez";
+  const command = "npm install claudespritez";
 
   const handleCopy = async () => {
     try {

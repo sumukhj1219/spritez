@@ -82,8 +82,8 @@ const SpriteDetailSheet = ({
           <SheetTitle className="lowercase">{sprite.label}</SheetTitle>
         </SheetHeader>
 
-        <div className="flex flex-col gap-6 px-4 pb-6">
-          <div className="relative h-24 w-24 overflow-hidden rounded-lg border ring ring-background">
+        <div className="flex flex-col gap-6 px-4 pb-6 ">
+          <div className="relative h-24 w-24 overflow-hidden rounded-lg ring ring-background border">
             <div className="absolute inset-0 ">
               <Pattern />
             </div>
@@ -96,24 +96,24 @@ const SpriteDetailSheet = ({
             />
           </div>
 
-          <div className="flex flex-col gap-y-5">
+          <div className="flex flex-col gap-y-5  p-2 ">
             <CodeStep
               label="1. Install"
-              code="npm install react-web-spritez"
+              code="npm install claudespritez"
               lang="bash"
               copied={copiedId === "install"}
               onCopy={() =>
-                handleCopy("npm install react-web-spritez", "install")
+                handleCopy("npm install claudespritez", "install")
               }
             />
             <CodeStep
               label="2. Import"
-              code={`import { ${componentName} } from "react-web-spritez";\nimport "react-web-spritez/styles.css";`}
+              code={`import { ${componentName} } from "claudespritez";\nimport "claudespritez/styles.css";`}
               lang="tsx"
               copied={copiedId === "import"}
               onCopy={() =>
                 handleCopy(
-                  `import { ${componentName} } from "react-web-spritez";\nimport "react-web-spritez/styles.css";`,
+                  `import { ${componentName} } from "claudespritez";\nimport "claudespritez/styles.css";`,
                   "import",
                 )
               }
