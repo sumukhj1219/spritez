@@ -10,31 +10,25 @@ interface SpriteCardProps {
 }
 
 const SpriteCard = ({ label, imgSrc, onClick, title }: SpriteCardProps) => {
-  const [copied, setCopied] = React.useState(false);
 
-  const handleCopy = () => {
-    window.navigator.clipboard.writeText(
-      `import {${title}} from "react-web-spritez"`,
-    );
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
+  const handleCopy = (e: React.MouseEvent) => {
+    e.stopPropagation();
   };
 
   return (
     <div
-      onClick={(e) => onClick(e)}
-      className="flex items-center justify-center mx-auto rounded-lg cursor-pointer size-14 sm:size-20 bg-secondary transition-colors duration-300 relative border ring ring-background group hover:shadow-sm shadow-neutral-200 overflow-hidden"
+      onClick={onClick}
+      className="relative flex aspect-square w-full items-center justify-center rounded-lg border bg-secondary ring ring-background transition-colors duration-300 hover:shadow-sm shadow-neutral-200 cursor-pointer overflow-hidden group/card"
     >
-      <div className="flex items-center shadow absolute justify-center mx-auto rounded-lg cursor-pointer size-12 sm:size-18 bg-background/30 group-hover:bg-background/60 transition-colors duration-300 hover:shadow-sm shadow-neutral-200 overflow-hidden" />
-      <div className="relative z-10 w-6 h-6 sm:w-10 sm:h-10">
+      <div className="absolute inset-1 rounded-lg bg-background/30 group-hover/card:bg-background/60 transition-colors duration-300 shadow hover:shadow-sm shadow-neutral-200" />
+
+      <div className="relative z-10 w-1/2 h-1/2 max-w-[48px] max-h-[48px] min-w-[24px] min-h-[24px]">
         <Image
           src={imgSrc}
           alt={label}
           fill
-          sizes="(max-width: 640px) 24px, 32px"
-          className="object-contain"
+          sizes="(max-width: 640px) 32px, (max-width: 1024px) 40px, 48px"
+          className="object-contain transition-transform duration-300 group-hover/card:scale-110"
         />
       </div>
     </div>
