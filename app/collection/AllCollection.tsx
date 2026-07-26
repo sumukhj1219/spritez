@@ -43,6 +43,10 @@ const AllCollection = () => {
         open={detailOpen}
         onOpenChange={setDetailOpen}
         sprite={selectedSprite}
+        onSpriteChange={(next) => {
+          addSprite(next);
+          setSelectedSprite(next);
+        }}
       />
     </div>
   );

@@ -23,7 +23,7 @@ const Heading = () => {
         ClaudeSpritez
       </h1>
       <h3 className="md:text-2xl text-xs px-1 text-left">
-        A curated collection of highly interactive Sprites for Claude.
+        A curated collection of highly interactive sprites of claude.
       </h3>
       <div className="sm:text-lg text-xs text-left sm:my-5 my-3 w-full flex max-w-md overflow-hidden flex-row items-stretch sm:items-center gap-3">
         <div className="flex min-w-0 overflow-x-auto  border px-3 md:py-1  rounded-lg ring ring-background">

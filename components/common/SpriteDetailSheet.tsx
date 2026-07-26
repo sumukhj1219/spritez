@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Check, Copy } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Copy } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -11,7 +11,7 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { CollectionConfig } from "@/app/collection/config";
+import { COLLECTION_CONFIG, CollectionConfig } from "@/app/collection/config";
 import Pattern from "@/components/svgs/Pattern";
 import { Badge } from "../ui/badge";
 import CodeBlock from "./CodeBlock";
@@ -20,6 +20,7 @@ interface SpriteDetailSheetProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   sprite: CollectionConfig | null;
+  onSpriteChange: (sprite: CollectionConfig) => void;
 }
 
 interface CodeStepProps {
@@ -56,6 +57,7 @@ const SpriteDetailSheet = ({
   open,
   onOpenChange,
   sprite,
+  onSpriteChange,
 }: SpriteDetailSheetProps) => {
   const [copiedId, setCopiedId] = useState("");
 
@@ -64,6 +66,16 @@ const SpriteDetailSheet = ({
   const variantNumber = sprite.label.match(/(\d+)\s*$/)?.[1] ?? "1";
   const componentName = `ClaudeMascot${variantNumber}`;
   const spriteSheetSrc = `/sprites/c${variantNumber}.png`;
+
+  const activeIndex = COLLECTION_CONFIG.indexOf(sprite);
+  const total = COLLECTION_CONFIG.length;
+  const prevSprite = COLLECTION_CONFIG[(activeIndex - 1 + total) % total];
+  const nextSprite = COLLECTION_CONFIG[(activeIndex + 1) % total];
+
+  const goTo = (next: CollectionConfig) => {
+    setCopiedId("");
+    onSpriteChange(next);
+  };
 
   const handleCopy = async (text: string, id: string) => {
     try {
@@ -128,6 +140,24 @@ const SpriteDetailSheet = ({
           </div>
           <Button>Download Sprite Sheet</Button>
 
+          <div className="flex items-center justify-between gap-2">
+            <Button
+              variant="secondary"
+              size="icon-sm"
+              onClick={() => goTo(prevSprite)}
+              aria-label="Previous sprite"
+            >
+              <ChevronLeft />
+            </Button>
+            <Button
+              variant="secondary"
+              size="icon-sm"
+              onClick={() => goTo(nextSprite)}
+              aria-label="Next sprite"
+            >
+              <ChevronRight />
+            </Button>
+          </div>
         </div>
       </SheetContent>
     </Sheet>
