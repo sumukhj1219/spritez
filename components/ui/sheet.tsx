@@ -2,13 +2,23 @@
 
 import * as React from "react"
 import { Dialog as SheetPrimitive } from "radix-ui"
+import { AnimatePresence, motion } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { XIcon } from "lucide-react"
 
-function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
-  return <SheetPrimitive.Root data-slot="sheet" {...props} />
+const SheetOpenContext = React.createContext(false)
+
+function Sheet({
+  open,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Root>) {
+  return (
+    <SheetOpenContext.Provider value={!!open}>
+      <SheetPrimitive.Root data-slot="sheet" open={open} {...props} />
+    </SheetOpenContext.Provider>
+  )
 }
 
 function SheetTrigger({
@@ -26,7 +36,7 @@ function SheetClose({
 function SheetPortal({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Portal>) {
-  return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />
+  return <SheetPrimitive.Portal data-slot="sheet-portal" forceMount {...props} />
 }
 
 function SheetOverlay({
@@ -34,15 +44,23 @@ function SheetOverlay({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Overlay>) {
   return (
-    <SheetPrimitive.Overlay
-      data-slot="sheet-overlay"
-      className={cn(
-        "fixed inset-0 z-50  duration-100  data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
-        className
-      )}
-      {...props}
-    />
+    <SheetPrimitive.Overlay asChild forceMount data-slot="sheet-overlay" {...props}>
+      <motion.div
+        className={cn("fixed inset-0 z-50", className)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
+      />
+    </SheetPrimitive.Overlay>
   )
+}
+
+const SIDE_OFFSET: Record<"top" | "right" | "bottom" | "left", { x: number; y: number }> = {
+  right: { x: 40, y: 0 },
+  left: { x: -40, y: 0 },
+  top: { x: 0, y: -40 },
+  bottom: { x: 0, y: 40 },
 }
 
 function SheetContent({
@@ -55,34 +73,49 @@ function SheetContent({
   side?: "top" | "right" | "bottom" | "left"
   showCloseButton?: boolean
 }) {
+  const open = React.useContext(SheetOpenContext)
+  const { x, y } = SIDE_OFFSET[side]
+
   return (
-    <SheetPortal>
-      <SheetOverlay />
-      <SheetPrimitive.Content
-        data-slot="sheet-content"
-        data-side={side}
-        className={cn(
-          "fixed z-50 flex flex-col gap-4 ring ring-background bg-popover bg-clip-padding text-sm text-popover-foreground shadow-lg transition duration-200 ease-in-out data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:h-auto data-[side=bottom]:border-t data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:h-full data-[side=left]:w-3/4 data-[side=left]:border-r data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:h-full data-[side=right]:w-3/4 data-[side=right]:border-l data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:h-auto data-[side=top]:border-b data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-[side=bottom]:data-open:slide-in-from-bottom-10 data-[side=left]:data-open:slide-in-from-left-10 data-[side=right]:data-open:slide-in-from-right-10 data-[side=top]:data-open:slide-in-from-top-10 data-closed:animate-out data-closed:fade-out-0 data-[side=bottom]:data-closed:slide-out-to-bottom-10 data-[side=left]:data-closed:slide-out-to-left-10 data-[side=right]:data-closed:slide-out-to-right-10 data-[side=top]:data-closed:slide-out-to-top-10",
-          className
-        )}
-        {...props}
-      >
-        {children}
-        {showCloseButton && (
-          <SheetPrimitive.Close data-slot="sheet-close" asChild>
-            <Button
-              variant="ghost"
-              className="absolute top-3 right-3"
-              size="icon-sm"
+    <AnimatePresence>
+      {open && (
+        <SheetPortal>
+          <SheetOverlay />
+          <SheetPrimitive.Content
+            asChild
+            forceMount
+            data-slot="sheet-content"
+            data-side={side}
+            {...props}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: 100, y }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              exit={{ opacity: 0, x: 100, y }}
+              transition={{ type: "spring", stiffness: 320, damping: 32 }}
+              className={cn(
+                "fixed z-50 flex flex-col gap-4 rounded-xl border ring ring-background bg-popover bg-clip-padding text-sm text-popover-foreground shadow-lg data-[side=bottom]:inset-x-4 data-[side=bottom]:bottom-4 data-[side=bottom]:h-auto data-[side=left]:inset-y-4 data-[side=left]:left-4 data-[side=left]:right-4 data-[side=left]:h-auto data-[side=left]:w-auto data-[side=left]:sm:right-auto data-[side=left]:sm:w-3/4 data-[side=right]:inset-y-4 data-[side=right]:right-4 data-[side=right]:left-4 data-[side=right]:h-auto data-[side=right]:w-auto data-[side=right]:sm:left-auto data-[side=right]:sm:w-3/4 data-[side=top]:inset-x-4 data-[side=top]:top-4 data-[side=top]:h-auto data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm",
+                className
+              )}
             >
-              <XIcon
-              />
-              <span className="sr-only">Close</span>
-            </Button>
-          </SheetPrimitive.Close>
-        )}
-      </SheetPrimitive.Content>
-    </SheetPortal>
+              {children}
+              {showCloseButton && (
+                <SheetPrimitive.Close data-slot="sheet-close" asChild>
+                  <Button
+                    variant="ghost"
+                    className="absolute top-3 right-3"
+                    size="icon-sm"
+                  >
+                    <XIcon />
+                    <span className="sr-only">Close</span>
+                  </Button>
+                </SheetPrimitive.Close>
+              )}
+            </motion.div>
+          </SheetPrimitive.Content>
+        </SheetPortal>
+      )}
+    </AnimatePresence>
   )
 }
 

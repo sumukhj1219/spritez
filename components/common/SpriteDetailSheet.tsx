@@ -13,7 +13,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { COLLECTION_CONFIG, CollectionConfig } from "@/app/collection/config";
 import Pattern from "@/components/svgs/Pattern";
-import { Badge } from "../ui/badge";
 import CodeBlock from "./CodeBlock";
 
 interface SpriteDetailSheetProps {
@@ -89,7 +88,7 @@ const SpriteDetailSheet = ({
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent side="right" className="w-full sm:max-w-sm overflow-y-auto">
+      <SheetContent side="right" className="overflow-y-auto">
         <SheetHeader>
           <SheetTitle className="lowercase">{sprite.label}</SheetTitle>
         </SheetHeader>
