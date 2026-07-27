@@ -35,15 +35,15 @@ const UsageComponent = () => {
         <div className="flex flex-col gap-y-2">
           <div className="md:text-sm text-xs text-left text-secondary flex items-center gap-x-4 justify-between ">
             <div>
-              To get started, install spritez using npm or yarn:
+              To get started, install claudesprites using npm or yarn:
               <br />
-              <code>npm install react-web-spritez</code>
+              <code>npm install claudesprites</code>
             </div>
             <Button
               size={"sm"}
               variant={"secondary"}
               onClick={() =>
-                handleCopy("npm install react-web-spritez", "install")
+                handleCopy("npm install claudesprites", "install")
               }
             >
               {copiedText === "install" ? "Copied!" : "Copy"}
@@ -59,16 +59,16 @@ const UsageComponent = () => {
         <div className="flex flex-col gap-y-2">
           <div className="md:text-sm text-xs text-left text-secondary flex items-center gap-x-4 justify-between ">
             <div>
-              <code>{`import { GolangGopher } from 'react-web-spritez';`}</code>
+              <code>{`import { ClaudeMascot1 } from 'claudesprites';`}</code>
               <br />
-              <code>{`import "react-web-spritez/styles.css";`}</code>
+              <code>{`import "claudesprites/styles.css";`}</code>
             </div>
             <Button
               size={"sm"}
               variant={"secondary"}
               onClick={() =>
                 handleCopy(
-                  `import { GolangGopher } from 'react-web-spritez';\nimport "react-web-spritez/styles.css";`,
+                  `import { ClaudeMascot1 } from 'claudesprites';\nimport "claudesprites/styles.css";`,
                   "import",
                 )
               }
@@ -86,12 +86,12 @@ const UsageComponent = () => {
         <div className="flex flex-col gap-y-2">
           <div className="md:text-sm text-xs text-left text-secondary flex items-center gap-x-4 justify-between ">
             <div>
-              <code>{`<GolangGopher />`}</code>
+              <code>{`<ClaudeMascot1 />`}</code>
             </div>
             <Button
               size={"sm"}
               variant={"secondary"}
-              onClick={() => handleCopy("<GolangGopher />", "using")}
+              onClick={() => handleCopy("<ClaudeMascot1 />", "using")}
             >
               {copiedText === "using" ? "Copied!" : "Copy"}
             </Button>

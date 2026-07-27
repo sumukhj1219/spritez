@@ -1,0 +1,74 @@
+.c1-container {
+    --frame-width: 64px;
+    --frame-height: 64px;
+    display: inline-block;
+    text-align: center;
+    will-change: left, top;
+}
+
+.c1-sprite {
+    display: block;
+    width: var(--frame-width);
+    height: var(--frame-height);
+    background-image: var(--sprite-url);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    image-rendering: pixelated;
+    transform: translateZ(0);
+}
+
+.c1-sprite.idle {
+    background-position: 0 0;
+    animation: c1-anim-frame var(--playback-speed) steps(6, end) infinite;
+}
+
+.c1-sprite.walk {
+    background-position: calc(-1 * var(--frame-width) * 12) 0;
+    animation: c1-anim-frame-walk var(--playback-speed) steps(6, end) infinite;
+}
+
+.c1-sprite.touch {
+    background-position: calc(-1 * var(--frame-width) * 6) 0;
+    animation: c1-anim-frame-touch var(--playback-speed) steps(6, end) infinite;
+}
+
+.c1-sprite.hit {
+    background-position: calc(-1 * var(--frame-width) * 18) 0;
+    animation: c1-anim-frame-hit var(--playback-speed) steps(6, end) infinite;
+}
+
+.c1-sprite.exercise {
+    background-position: calc(-1 * var(--frame-width) * 24) 0;
+    animation: c1-anim-frame-exercise var(--playback-speed) steps(6, end)
+        infinite;
+}
+
+@keyframes c1-anim-frame {
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 6);
+    }
+}
+
+@keyframes c1-anim-frame-walk {
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 18);
+    }
+}
+
+@keyframes c1-anim-frame-touch {
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 12);
+    }
+}
+
+@keyframes c1-anim-frame-hit {
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 24);
+    }
+}
+
+@keyframes c1-anim-frame-exercise {
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 30);
+    }
+}

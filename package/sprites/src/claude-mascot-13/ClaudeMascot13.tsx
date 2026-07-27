@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import "./claude-mascot.css";
+import "./c13.css";
 import { defaultActions, ClaudeMascotProps, ClaudeMascotAnimationStates } from "../index";
+import { SPRITE_SHEET_URLS } from "../sprite-urls";
 
 
 const defaultClaudeMascotProps = {
@@ -14,7 +15,7 @@ const defaultClaudeMascotProps = {
   actions: defaultActions,
 };
 
-const ClaudeMascot = (props: ClaudeMascotProps) => {
+const ClaudeMascot13 = (props: ClaudeMascotProps) => {
   const { initialX, initialY, size, hoverRange, damageRange, actions } = {
     ...defaultClaudeMascotProps,
     ...props,
@@ -32,7 +33,7 @@ const ClaudeMascot = (props: ClaudeMascotProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const speeds: Record<ClaudeMascotAnimationStates, string> = {
-    idle: "0.8s",
+    idle: "2s",
     walk: "0.6s",
     touch: "0.8s",
     hit: "0.8s",
@@ -46,7 +47,7 @@ const ClaudeMascot = (props: ClaudeMascotProps) => {
       const target = e.target as HTMLElement;
       if (
         target.tagName === "BUTTON" ||
-        target.closest(".claude-mascot-sprite")
+        target.closest(".c13-sprite")
       )
         return;
 
@@ -103,7 +104,7 @@ const ClaudeMascot = (props: ClaudeMascotProps) => {
   return (
     <div
       ref={containerRef}
-      className="claude-mascot-container"
+      className="c13-container"
       onTransitionEnd={handleTransitionEnd}
       style={{
         position: "fixed",
@@ -118,9 +119,10 @@ const ClaudeMascot = (props: ClaudeMascotProps) => {
       }}
     >
       <div
-        className={`claude-mascot-sprite ${animation}`}
+        className={`c13-sprite ${animation}`}
         style={{
           ["--playback-speed" as any]: speeds[animation],
+          ["--sprite-url" as any]: `url(${SPRITE_SHEET_URLS[13]})`,
           pointerEvents: "auto",
         }}
         onClick={(e) => {
@@ -139,4 +141,4 @@ const ClaudeMascot = (props: ClaudeMascotProps) => {
   );
 };
 
-export default ClaudeMascot;
+export default ClaudeMascot13;

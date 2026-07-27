@@ -1,0 +1,22 @@
+// Replace with the real Cloudinary delivery URLs before publishing.
+export const SPRITE_SHEET_URLS: Record<number, string> = {
+  1: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c1.png",
+  2: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c2.png",
+  3: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c3.png",
+  4: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c4.png",
+  5: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c5.png",
+  6: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c6.png",
+  7: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c7.png",
+  8: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c8.png",
+  9: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c9.png",
+  10: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c10.png",
+  11: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c11.png",
+  12: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c12.png",
+  13: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c13.png",
+  14: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c14.png",
+  15: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c15.png",
+  16: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c16.png",
+  17: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c17.png",
+  18: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c18.png",
+  19: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c19.png",
+};

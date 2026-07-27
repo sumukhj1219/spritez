@@ -1,7 +1,7 @@
 {
-  "name": "react-web-spritez",
-  "version": "1.0.67",
-  "description": "An interactive floating pixel sprites for React websites",
+  "name": "claudesprites",
+  "version": "1.0.0",
+  "description": "Interactive, floating pixel-art Claude mascot sprites for React and Next.js websites",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -14,7 +14,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./styles.css": "./dist/react-web-spritez.css"
+    "./styles.css": "./dist/claudesprites.css"
   },
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly --outDir dist --rootDir src"

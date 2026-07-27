@@ -6,7 +6,7 @@ import {motion} from "framer-motion"
 
 const Heading = () => {
   const [copied, setCopied] = useState(false);
-  const command = "npm install claudespritez";
+  const command = "npm install claudesprites";
 
   const handleCopy = async () => {
     try {

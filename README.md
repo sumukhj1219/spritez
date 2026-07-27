@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Claude Spritez
 
-## Getting Started
+A gallery of 19 interactive, animated pixel-art Claude mascots for the web. Pick a mascot in the gallery, grab the install/import snippet, and drop it into your own React or Next.js app.
 
-First, run the development server:
+The npm package that ships these mascots (`claudesprites`) lives in [`package/sprites`](./package/sprites).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project structure
+
+```
+app/collection/    Gallery pages, one folder per mascot (ClaudeMascot1 … ClaudeMascot19)
+components/        Shared UI: sprite cards, the detail sheet, code blocks, etc.
+lib/                Shared types (ClaudeMascotProps, animation states) and utils
+store/              Zustand store tracking sprites added to the "active" stage
+public/sprites/     Sprite sheets used by the gallery site itself
+package/sprites/    The publishable `claudesprites` npm package
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Install dependencies and run the dev server:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) to browse the gallery.
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run dev` — start the Next.js dev server
+- `npm run build` — production build
+- `npm run start` — run the production build
+- `npm run lint` — lint the app
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## The `claudesprites` package
 
-## Deploy on Vercel
+Each mascot in the gallery corresponds to a named export (`ClaudeMascot1` … `ClaudeMascot19`) in the `claudesprites` package:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm install claudesprites
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```tsx
+import { ClaudeMascot1 } from "claudesprites";
+import "claudesprites/styles.css";
+
+<ClaudeMascot1 />;
+```
+
+See [`package/sprites/README.md`](./package/sprites/README.md) for the full component list, props, and build instructions.

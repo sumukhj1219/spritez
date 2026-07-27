@@ -110,21 +110,21 @@ const SpriteDetailSheet = ({
           <div className="flex flex-col gap-y-5  p-2 ">
             <CodeStep
               label="1. Install"
-              code="npm install claudespritez"
+              code="npm install claudesprites"
               lang="bash"
               copied={copiedId === "install"}
               onCopy={() =>
-                handleCopy("npm install claudespritez", "install")
+                handleCopy("npm install claudesprites", "install")
               }
             />
             <CodeStep
               label="2. Import"
-              code={`import { ${componentName} } from "claudespritez";\nimport "claudespritez/styles.css";`}
+              code={`import { ${componentName} } from "claudesprites";\nimport "claudesprites/styles.css";`}
               lang="tsx"
               copied={copiedId === "import"}
               onCopy={() =>
                 handleCopy(
-                  `import { ${componentName} } from "claudespritez";\nimport "claudespritez/styles.css";`,
+                  `import { ${componentName} } from "claudesprites";\nimport "claudesprites/styles.css";`,
                   "import",
                 )
               }
