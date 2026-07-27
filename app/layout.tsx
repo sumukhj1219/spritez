@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "React Web Spritez",
-  description: "An interactive floating and pixel sprites for React websites",
+  title: "Claude Spritez",
+  description: "An interactive floating and pixel sprites of claude.",
 };
 
 export default function RootLayout({

@@ -92,7 +92,7 @@ function SheetContent({
               initial={{ opacity: 0, x: 100, y }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               exit={{ opacity: 0, x: 100, y }}
-              transition={{ type: "spring", stiffness: 320, damping: 32 }}
+              transition={{ type: "spring", stiffness: 320, damping: 32, ease:"easeInOut" }}
               className={cn(
                 "fixed z-50 flex flex-col gap-4 rounded-xl border ring ring-background bg-popover bg-clip-padding text-sm text-popover-foreground shadow-lg data-[side=bottom]:inset-x-4 data-[side=bottom]:bottom-4 data-[side=bottom]:h-auto data-[side=left]:inset-y-4 data-[side=left]:left-4 data-[side=left]:right-4 data-[side=left]:h-auto data-[side=left]:w-auto data-[side=left]:sm:right-auto data-[side=left]:sm:w-3/4 data-[side=right]:inset-y-4 data-[side=right]:right-4 data-[side=right]:left-4 data-[side=right]:h-auto data-[side=right]:w-auto data-[side=right]:sm:left-auto data-[side=right]:sm:w-3/4 data-[side=top]:inset-x-4 data-[side=top]:top-4 data-[side=top]:h-auto data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm",
                 className
@@ -102,7 +102,7 @@ function SheetContent({
               {showCloseButton && (
                 <SheetPrimitive.Close data-slot="sheet-close" asChild>
                   <Button
-                    variant="ghost"
+                    variant="secondary"
                     className="absolute top-3 right-3"
                     size="icon-sm"
                   >

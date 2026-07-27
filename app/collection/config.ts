@@ -1,27 +1,29 @@
-import ClaudeMascot1 from "./claude-mascot-1/ClaudeMascot1";
-import ClaudeMascot2 from "./claude-mascot-2/ClaudeMascot2";
-import ClaudeMascot3 from "./claude-mascot-3/ClaudeMascot3";
-import ClaudeMascot4 from "./claude-mascot-4/ClaudeMascot4";
-import ClaudeMascot5 from "./claude-mascot-5/ClaudeMascot5";
-import ClaudeMascot6 from "./claude-mascot-6/ClaudeMascot6";
-import ClaudeMascot7 from "./claude-mascot-7/ClaudeMascot7";
-import ClaudeMascot8 from "./claude-mascot-8/ClaudeMascot8";
-import ClaudeMascot9 from "./claude-mascot-9/ClaudeMascot9";
-import ClaudeMascot10 from "./claude-mascot-10/ClaudeMascot10";
-import ClaudeMascot11 from "./claude-mascot-11/ClaudeMascot11";
-import ClaudeMascot12 from "./claude-mascot-12/ClaudeMascot12";
-import ClaudeMascot13 from "./claude-mascot-13/ClaudeMascot13";
-import ClaudeMascot14 from "./claude-mascot-14/ClaudeMascot14";
-import ClaudeMascot15 from "./claude-mascot-15/ClaudeMascot15";
-import ClaudeMascot16 from "./claude-mascot-16/ClaudeMascot16";
-import ClaudeMascot17 from "./claude-mascot-17/ClaudeMascot17";
+import dynamic from "next/dynamic";
 
 export type CollectionConfig = {
   label: string;
-  component: React.FunctionComponent;
+  component: React.ComponentType;
   imgSrc: string;
   title?: string;
 };
+
+const ClaudeMascot1 = dynamic(() => import("./claude-mascot-1/ClaudeMascot1"));
+const ClaudeMascot2 = dynamic(() => import("./claude-mascot-2/ClaudeMascot2"));
+const ClaudeMascot3 = dynamic(() => import("./claude-mascot-3/ClaudeMascot3"));
+const ClaudeMascot4 = dynamic(() => import("./claude-mascot-4/ClaudeMascot4"));
+const ClaudeMascot5 = dynamic(() => import("./claude-mascot-5/ClaudeMascot5"));
+const ClaudeMascot6 = dynamic(() => import("./claude-mascot-6/ClaudeMascot6"));
+const ClaudeMascot7 = dynamic(() => import("./claude-mascot-7/ClaudeMascot7"));
+const ClaudeMascot8 = dynamic(() => import("./claude-mascot-8/ClaudeMascot8"));
+const ClaudeMascot9 = dynamic(() => import("./claude-mascot-9/ClaudeMascot9"));
+const ClaudeMascot10 = dynamic(() => import("./claude-mascot-10/ClaudeMascot10"));
+const ClaudeMascot11 = dynamic(() => import("./claude-mascot-11/ClaudeMascot11"));
+const ClaudeMascot12 = dynamic(() => import("./claude-mascot-12/ClaudeMascot12"));
+const ClaudeMascot13 = dynamic(() => import("./claude-mascot-13/ClaudeMascot13"));
+const ClaudeMascot14 = dynamic(() => import("./claude-mascot-14/ClaudeMascot14"));
+const ClaudeMascot15 = dynamic(() => import("./claude-mascot-15/ClaudeMascot15"));
+const ClaudeMascot16 = dynamic(() => import("./claude-mascot-16/ClaudeMascot16"));
+const ClaudeMascot17 = dynamic(() => import("./claude-mascot-17/ClaudeMascot17"));
 
 export const COLLECTION_CONFIG: CollectionConfig[] = [
   {

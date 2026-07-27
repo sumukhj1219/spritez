@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const UsageComponent = () => {
   const [copiedText, setCopiedText] = useState("");
 
-  const handleCopy = async (text, id) => {
+  const handleCopy = async (text: string, id: string) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedText(id);

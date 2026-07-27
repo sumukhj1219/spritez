@@ -6,14 +6,9 @@ interface SpriteCardProps {
   label: string;
   imgSrc: string;
   onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
-  title?: string;
 }
 
-const SpriteCard = ({ label, imgSrc, onClick, title }: SpriteCardProps) => {
-
-  const handleCopy = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
+const SpriteCard = ({ label, imgSrc, onClick }: SpriteCardProps) => {
 
   return (
     <div
@@ -25,6 +20,7 @@ const SpriteCard = ({ label, imgSrc, onClick, title }: SpriteCardProps) => {
       <div className="relative z-10 w-1/2 h-1/2 max-w-[48px] max-h-[48px] min-w-[24px] min-h-[24px]">
         <Image
           src={imgSrc}
+          loading="lazy"
           alt={label}
           fill
           sizes="(max-width: 640px) 32px, (max-width: 1024px) 40px, 48px"

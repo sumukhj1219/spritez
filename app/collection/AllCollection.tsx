@@ -26,7 +26,6 @@ const AllCollection = () => {
               <SpriteCard
                 label={item.label}
                 imgSrc={item.imgSrc}
-                title={item.label}
                 onClick={(e: React.MouseEvent<HTMLDivElement>) => {
                   e.stopPropagation();
                   addSprite(item);

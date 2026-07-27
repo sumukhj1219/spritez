@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import {motion} from "framer-motion"
 
 const Heading = () => {
   const [copied, setCopied] = useState(false);
