@@ -14,7 +14,7 @@ const defaultClaudeMascotProps = {
   actions: defaultActions,
 };
 
-const ClaudeMascot16 = (props: ClaudeMascotProps) => {
+const ClaudeMascot17 = (props: ClaudeMascotProps) => {
   const { initialX, initialY, size, hoverRange, damageRange, actions } = {
     ...defaultClaudeMascotProps,
     ...props,
@@ -139,4 +139,4 @@ const ClaudeMascot16 = (props: ClaudeMascotProps) => {
   );
 };
 
-export default ClaudeMascot16
+export default ClaudeMascot17

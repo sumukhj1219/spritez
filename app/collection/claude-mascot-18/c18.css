@@ -1,0 +1,63 @@
+.c18-container {
+    --frame-width: 64px;
+    --frame-height: 64px;
+    display: inline-block;
+    text-align: center;
+    will-change: left, top;
+}
+
+.c18-sprite {
+    display: block;
+    width: var(--frame-width);
+    height: var(--frame-height);
+    background-image: url("/sprites/c18.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    image-rendering: pixelated;
+    transform: translateZ(0);
+}
+
+.c18-sprite.idle {
+    background-position: 0 0;
+    animation: c18-anim-frame var(--playback-speed) steps(6, end) infinite;
+}
+
+.c18-sprite.walk {
+    background-position: calc(-1 * var(--frame-width) * 12) 0;
+    animation: c18-anim-frame-walk var(--playback-speed) steps(6, end) infinite;
+}
+
+.c18-sprite.touch {
+    background-position: calc(-1 * var(--frame-width) * 6) 0;
+    animation: c18-anim-frame-touch var(--playback-speed) steps(6, end) infinite;
+}
+
+.c18-sprite.hit {
+    background-position: calc(-1 * var(--frame-width) * 18) 0;
+    animation: c18-anim-frame-hit var(--playback-speed) steps(6, end) infinite;
+}
+
+
+@keyframes c18-anim-frame {
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 6);
+    }
+}
+
+@keyframes c18-anim-frame-walk {
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 18);
+    }
+}
+
+@keyframes c18-anim-frame-touch {
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 12);
+    }
+}
+
+@keyframes c18-anim-frame-hit {
+    to {
+        background-position-x: calc(-1 * var(--frame-width) * 24);
+    }
+}

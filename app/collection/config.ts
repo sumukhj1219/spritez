@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 
+
 export type CollectionConfig = {
   label: string;
   component: React.ComponentType;
@@ -24,6 +25,7 @@ const ClaudeMascot14 = dynamic(() => import("./claude-mascot-14/ClaudeMascot14")
 const ClaudeMascot15 = dynamic(() => import("./claude-mascot-15/ClaudeMascot15"));
 const ClaudeMascot16 = dynamic(() => import("./claude-mascot-16/ClaudeMascot16"));
 const ClaudeMascot17 = dynamic(() => import("./claude-mascot-17/ClaudeMascot17"));
+const ClaudeMascot18 = dynamic(() => import("./claude-mascot-18/ClaudeMascot18"));
 
 export const COLLECTION_CONFIG: CollectionConfig[] = [
   {
@@ -127,5 +129,11 @@ export const COLLECTION_CONFIG: CollectionConfig[] = [
     component: ClaudeMascot17,
     imgSrc: "/preview/c17-preview.png",
     title: "ClaudeMascot 17",
+  },
+  {
+    label: "Luffy",
+    component: ClaudeMascot18,
+    imgSrc: "/preview/c18-preview.png",
+    title: "ClaudeMascot 18",
   },
 ];
