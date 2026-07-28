@@ -9,6 +9,9 @@ const page = () => {
       <Heading />
       <AllCollection />
       <ActiveSprite />
+      <div className="flex items-center justify-center mx-auto py-16 italic opacity-50">
+        Stay tuned still plenty on deck
+      </div>
     </div>
   );
 };
