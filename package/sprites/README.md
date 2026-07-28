@@ -73,7 +73,7 @@ By default, clicking anywhere on the page makes the mascot walk there, clicking 
   initialX={200}
   initialY={300}
   size={1.5}
-  actions={{ onClickStage: "walk", onClickSprite: "exercise" }}
+  actions={{ onClickStage: "walk", onClickSprite: "touch" }}
 />
 ```
 
