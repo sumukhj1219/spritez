@@ -1,0 +1,211 @@
+:root {
+  --csx-bg: oklch(0.9818 0.0054 95.0986);
+  --csx-fg: oklch(0.3438 0.0269 95.7226);
+  --csx-card: oklch(1 0 0);
+  --csx-muted: oklch(0.9341 0.0153 90.239);
+  --csx-muted-fg: oklch(0.6059 0.0075 97.4233);
+  --csx-border: oklch(0.8847 0.0069 97.3627);
+  --csx-primary: oklch(0.6171 0.1375 39.0427);
+  --csx-primary-fg: oklch(1 0 0);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 260px;
+  margin: 0;
+  background: var(--csx-bg);
+  color: var(--csx-fg);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.csx-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+}
+
+.csx-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.csx-logo {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.csx-header h1 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.csx-preview-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 12px;
+  background: var(--csx-card);
+  border: 1px solid var(--csx-border);
+  border-radius: 10px;
+  transition: opacity 0.15s ease, filter 0.15s ease;
+}
+
+.csx-preview-card.csx-disabled {
+  opacity: 0.45;
+  filter: grayscale(1);
+}
+
+.csx-preview-stage {
+  width: 84px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--csx-muted);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.csx-preview-sprite {
+  width: 64px;
+  height: 64px;
+  background-image: var(--sprite-url);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  image-rendering: pixelated;
+  transform: scale(1.15);
+  animation: csx-preview-frame 5s steps(6, end) infinite;
+}
+
+@keyframes csx-preview-frame {
+  to {
+    background-position-x: calc(-1 * 64px * 6);
+  }
+}
+
+.csx-preview-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--csx-muted-fg);
+}
+
+.csx-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.csx-row-label {
+  font-size: 13px;
+}
+
+.csx-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.csx-switch input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.csx-switch-track {
+  position: absolute;
+  inset: 0;
+  background: var(--csx-border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.csx-switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: var(--csx-card);
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease;
+}
+
+.csx-switch input:checked + .csx-switch-track {
+  background: var(--csx-primary);
+}
+
+.csx-switch input:checked + .csx-switch-track .csx-switch-thumb {
+  transform: translateX(16px);
+}
+
+.csx-switch input:focus-visible + .csx-switch-track {
+  box-shadow: 0 0 0 3px oklch(0.6171 0.1375 39.0427 / 0.3);
+}
+
+.csx-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.csx-field-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--csx-muted-fg);
+}
+
+.csx-select-wrap {
+  position: relative;
+}
+
+.csx-select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 45%;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid var(--csx-muted-fg);
+  border-bottom: 2px solid var(--csx-muted-fg);
+  transform: translateY(-50%) rotate(45deg);
+  pointer-events: none;
+}
+
+#mascot-select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--csx-card);
+  color: var(--csx-fg);
+  border: 1px solid var(--csx-border);
+  border-radius: 8px;
+  padding: 8px 30px 8px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#mascot-select:hover {
+  border-color: var(--csx-primary);
+}
+
+#mascot-select:focus-visible {
+  outline: none;
+  border-color: var(--csx-primary);
+  box-shadow: 0 0 0 3px oklch(0.6171 0.1375 39.0427 / 0.25);
+}

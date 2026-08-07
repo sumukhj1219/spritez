@@ -3,39 +3,39 @@
   <head>
     <meta charset="utf-8" />
     <title>Claude Sprites</title>
-    <style>
-      body {
-        width: 200px;
-        font-family: system-ui, sans-serif;
-        padding: 12px;
-        margin: 0;
-      }
-      h1 {
-        font-size: 14px;
-        margin: 0 0 8px;
-      }
-      label {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        cursor: pointer;
-      }
-      select {
-        width: 100%;
-        margin-top: 10px;
-        padding: 4px;
-        font-size: 13px;
-      }
-    </style>
+    <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <h1>🐾 Claude Sprites</h1>
-    <label>
-      <input type="checkbox" id="enabled-toggle" />
-      Show mascot on pages
-    </label>
-    <select id="mascot-select"></select>
+    <div class="csx-popup">
+      <header class="csx-header">
+        <span class="csx-logo">🐾</span>
+        <h1>Claude Sprites</h1>
+      </header>
+
+      <div class="csx-preview-card" id="preview-card">
+        <div class="csx-preview-stage">
+          <div class="csx-preview-sprite" id="preview-sprite"></div>
+        </div>
+        <p class="csx-preview-label" id="preview-label"></p>
+      </div>
+
+      <div class="csx-row">
+        <span class="csx-row-label">Show on pages</span>
+        <label class="csx-switch">
+          <input type="checkbox" id="enabled-toggle" />
+          <span class="csx-switch-track">
+            <span class="csx-switch-thumb"></span>
+          </span>
+        </label>
+      </div>
+
+      <div class="csx-field">
+        <label class="csx-field-label" for="mascot-select">Mascot</label>
+        <div class="csx-select-wrap">
+          <select id="mascot-select"></select>
+        </div>
+      </div>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>
