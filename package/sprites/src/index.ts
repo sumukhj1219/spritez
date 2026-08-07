@@ -47,3 +47,4 @@ export { default as ClaudeMascot16 } from "./claude-mascot-16/ClaudeMascot16";
 export { default as ClaudeMascot17 } from "./claude-mascot-17/ClaudeMascot17";
 export { default as ClaudeMascot18 } from "./claude-mascot-18/ClaudeMascot18";
 export { default as ClaudeMascot19 } from "./claude-mascot-19/ClaudeMascot19";
+export { default as ClaudeMascot20 } from "./claude-mascot-20/ClaudeMascot20";

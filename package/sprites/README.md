@@ -6,7 +6,7 @@ Interactive, animated pixel-art Claude mascot sprites for React and Next.js apps
 
 - 🚀 **Next.js Ready:** bundled with `"use client"` directive preservation.
 - ⚡ **Lightweight:** built with Vite/Rollup, no runtime dependencies beyond React.
-- 🎭 **19 mascots:** every variant from the Claude Sprites gallery is exported as its own component.
+- 🎭 **20 mascots:** every variant from the Claude Sprites gallery is exported as its own component.
 - 🛠️ **TypeScript Powered:** full type definitions included out of the box.
 
 ## Installation
@@ -47,7 +47,7 @@ Every mascot shares the same props and animation states, they only differ in art
 | `ClaudeMascot7`   | Fighter    | `ClaudeMascot17`   | Curious   |
 | `ClaudeMascot8`   | Crazy      | `ClaudeMascot18`   | Luffy     |
 | `ClaudeMascot9`   | Grump      | `ClaudeMascot19`   | Excited   |
-| `ClaudeMascot10`  | Boxer      |                     |           |
+| `ClaudeMascot10`  | Boxer      | `ClaudeMascot20`   | Swimmer   |
 
 ## Props
 

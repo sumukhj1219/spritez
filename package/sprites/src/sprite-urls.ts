@@ -19,4 +19,5 @@ export const SPRITE_SHEET_URLS: Record<number, string> = {
   17: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c17.png",
   18: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c18.png",
   19: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c19.png",
+  20: "https://res.cloudinary.com/REPLACE_ME/image/upload/claudesprites/c20.png",
 };
