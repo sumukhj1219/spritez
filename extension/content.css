@@ -1,0 +1,77 @@
+.csx-mascot-container {
+  --frame-width: 64px;
+  --frame-height: 64px;
+  position: fixed;
+  z-index: 2147483647;
+  display: inline-block;
+  text-align: center;
+  will-change: left, top;
+  pointer-events: none;
+}
+
+.csx-mascot-sprite {
+  display: block;
+  width: var(--frame-width);
+  height: var(--frame-height);
+  background-image: var(--sprite-url);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  image-rendering: pixelated;
+  transform: translateZ(0);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.csx-mascot-sprite.idle {
+  animation: csx-anim-frame var(--playback-speed, 5s) steps(6, end) infinite;
+}
+
+.csx-mascot-sprite.walk {
+  background-position: calc(-1 * var(--frame-width) * 12) 0;
+  animation: csx-anim-frame-walk var(--playback-speed, 0.6s) steps(6, end) infinite;
+}
+
+.csx-mascot-sprite.touch {
+  background-position: calc(-1 * var(--frame-width) * 6) 0;
+  animation: csx-anim-frame-touch var(--playback-speed, 0.8s) steps(6, end) infinite;
+}
+
+.csx-mascot-sprite.hit {
+  background-position: calc(-1 * var(--frame-width) * 18) 0;
+  animation: csx-anim-frame-hit var(--playback-speed, 0.8s) steps(6, end) infinite;
+}
+
+.csx-mascot-sprite.exercise {
+  background-position: calc(-1 * var(--frame-width) * 24) 0;
+  animation: csx-anim-frame-exercise var(--playback-speed, 0.8s) steps(6, end) infinite;
+}
+
+@keyframes csx-anim-frame {
+  to {
+    background-position-x: calc(-1 * var(--frame-width) * 6);
+  }
+}
+
+@keyframes csx-anim-frame-walk {
+  to {
+    background-position-x: calc(-1 * var(--frame-width) * 18);
+  }
+}
+
+@keyframes csx-anim-frame-touch {
+  to {
+    background-position-x: calc(-1 * var(--frame-width) * 12);
+  }
+}
+
+@keyframes csx-anim-frame-hit {
+  to {
+    background-position-x: calc(-1 * var(--frame-width) * 24);
+  }
+}
+
+@keyframes csx-anim-frame-exercise {
+  to {
+    background-position-x: calc(-1 * var(--frame-width) * 30);
+  }
+}
