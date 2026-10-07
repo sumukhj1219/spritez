@@ -191,25 +191,31 @@
   text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
-/* Chromium ignores ::-webkit-scrollbar when scrollbar-width is set, so only Firefox gets the standard props */
-.scrollbar-thin::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
+/* Hairline scrollbar. Named "hairline" because Tailwind ships its own `scrollbar-thin`
+   utility (scrollbar-width: thin), and any scrollbar-width makes Chromium ignore
+   the ::-webkit-scrollbar styles below. Firefox can't go thinner than `thin`. */
+.scrollbar-hairline::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
 }
-.scrollbar-thin::-webkit-scrollbar-track,
-.scrollbar-thin::-webkit-scrollbar-corner {
+.scrollbar-hairline::-webkit-scrollbar-track,
+.scrollbar-hairline::-webkit-scrollbar-corner {
   background: transparent;
 }
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: color-mix(in oklch, var(--foreground) 18%, transparent);
+.scrollbar-hairline::-webkit-scrollbar-button {
+  display: none;
+}
+.scrollbar-hairline::-webkit-scrollbar-thumb {
+  background: color-mix(in oklch, var(--foreground) 15%, transparent);
   border-radius: 9999px;
 }
-.scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in oklch, var(--foreground) 35%, transparent);
+.scrollbar-hairline:hover::-webkit-scrollbar-thumb {
+  background: color-mix(in oklch, var(--foreground) 30%, transparent);
 }
 @supports not selector(::-webkit-scrollbar) {
-  .scrollbar-thin {
+  .scrollbar-hairline {
     scrollbar-width: thin;
-    scrollbar-color: color-mix(in oklch, var(--foreground) 18%, transparent) transparent;
+    scrollbar-color: color-mix(in oklch, var(--foreground) 15%, transparent) transparent;
   }
 }
+

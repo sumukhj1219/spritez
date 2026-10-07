@@ -44,7 +44,7 @@ const CodeStep = ({ step, label, code, lang, copied, onCopy }: CodeStepProps) =>
       <CodeBlock
         code={code}
         lang={lang}
-        className="scrollbar-thin min-w-0 flex-1 overflow-x-auto py-0.5 font-mono text-xs leading-relaxed whitespace-pre"
+        className="scrollbar-hairline min-w-0 flex-1 overflow-x-auto py-0.5 font-mono text-xs leading-relaxed whitespace-pre"
       />
       <Button
         size="icon-xs"
@@ -110,7 +110,7 @@ const SpriteDetailSheet = ({
           </SheetDescription>
         </SheetHeader>
 
-        <div className="scrollbar-thin flex min-h-0 flex-auto flex-col gap-6 overflow-y-auto px-5 pt-5 pb-5">
+        <div className="scrollbar-hairline flex min-h-0 flex-auto flex-col gap-6 overflow-y-auto px-5 pt-5 pb-5">
           <div className="relative flex aspect-[16/9] w-full items-center justify-center overflow-hidden rounded-lg border bg-muted/30">
             <div className="absolute inset-0 opacity-60">
               <Pattern />
