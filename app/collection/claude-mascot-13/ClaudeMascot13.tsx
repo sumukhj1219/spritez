@@ -14,6 +14,11 @@ const defaultClaudeMascotProps = {
   actions: defaultActions,
 };
 
+// Walk at a constant pace so long trips don't look like teleporting.
+const WALK_PX_PER_SEC = 73;
+const MIN_WALK_DURATION = 0.4;
+const MAX_WALK_DURATION = 9;
+
 const ClaudeMascot13 = (props: ClaudeMascotProps) => {
   const { initialX, initialY, size, hoverRange, damageRange, actions } = {
     ...defaultClaudeMascotProps,
@@ -27,6 +32,7 @@ const ClaudeMascot13 = (props: ClaudeMascotProps) => {
   const [animation, setAnimation] =
     useState<ClaudeMascotAnimationStates>("idle");
   const [position, setPosition] = useState({ x: initialX, y: initialY });
+  const [walkDuration, setWalkDuration] = useState(MIN_WALK_DURATION);
   const [isFlipped, setIsFlipped] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,13 +63,20 @@ const ClaudeMascot13 = (props: ClaudeMascotProps) => {
       setAnimation(actions.onClickStage!);
 
       if (actions.onClickStage === "walk") {
+        const distance = Math.hypot(x - position.x, y - position.y);
+        setWalkDuration(
+          Math.min(
+            Math.max(distance / WALK_PX_PER_SEC, MIN_WALK_DURATION),
+            MAX_WALK_DURATION,
+          ),
+        );
         setPosition({ x, y });
       }
     };
 
     window.addEventListener("click", handleClick);
     return () => window.removeEventListener("click", handleClick);
-  }, [position.x, animation, actions.onClickStage]);
+  }, [position.x, position.y, animation, actions.onClickStage]);
 
   useEffect(() => {
     if (!actions.onHoverNear || animation === "walk" || animation === "hit")
@@ -112,7 +125,7 @@ const ClaudeMascot13 = (props: ClaudeMascotProps) => {
         transform: `scale(${size}) scaleX(${isFlipped ? -1 : 1})`,
         transition:
           animation === "walk"
-            ? "left 4s ease-in-out, top 4s ease-in-out"
+            ? `left ${walkDuration}s linear, top ${walkDuration}s linear`
             : "none",
         zIndex: 9999,
       }}

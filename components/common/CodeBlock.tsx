@@ -1,13 +1,36 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { codeToHtml } from "shiki";
+import type { HighlighterCore } from "shiki/core";
 
 interface CodeBlockProps {
   code: string;
-  lang: string;
+  lang: "bash" | "tsx";
   className?: string;
 }
+
+// Fine-grained shiki: only the langs/themes we use and the JS regex engine
+// (no Oniguruma WASM). Loaded on first use and shared by every CodeBlock.
+let highlighterPromise: Promise<HighlighterCore> | null = null;
+
+const getHighlighter = () => {
+  highlighterPromise ??= Promise.all([
+    import("shiki/core"),
+    import("shiki/engine/javascript"),
+  ]).then(([{ createHighlighterCore }, { createJavaScriptRegexEngine }]) =>
+    createHighlighterCore({
+      themes: [
+        import("@shikijs/themes/light-plus"),
+        import("@shikijs/themes/dark-plus"),
+      ],
+      langs: [import("@shikijs/langs/bash"), import("@shikijs/langs/tsx")],
+      engine: createJavaScriptRegexEngine(),
+    }),
+  );
+  return highlighterPromise;
+};
+
+export const preloadHighlighter = () => void getHighlighter();
 
 const CodeBlock = ({ code, lang, className }: CodeBlockProps) => {
   const [html, setHtml] = useState<string | null>(null);
@@ -15,12 +38,15 @@ const CodeBlock = ({ code, lang, className }: CodeBlockProps) => {
   useEffect(() => {
     let cancelled = false;
 
-    codeToHtml(code, {
-      lang,
-      themes: { light: "light-plus", dark: "dark-plus" },
-      defaultColor: false,
-    }).then((result) => {
-      if (!cancelled) setHtml(result);
+    getHighlighter().then((highlighter) => {
+      if (cancelled) return;
+      setHtml(
+        highlighter.codeToHtml(code, {
+          lang,
+          themes: { light: "light-plus", dark: "dark-plus" },
+          defaultColor: false,
+        }),
+      );
     });
 
     return () => {

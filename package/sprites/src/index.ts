@@ -1,31 +1,4 @@
-export type ClaudeMascotAnimationStates =
-  | "idle"
-  | "walk"
-  | "hit"
-  | "touch"
-  | "exercise";
-
-export interface ClaudeMascotActions {
-  onClickStage?: ClaudeMascotAnimationStates;
-  onClickSprite?: ClaudeMascotAnimationStates;
-  onHoverNear?: ClaudeMascotAnimationStates;
-}
-
-export interface ClaudeMascotProps {
-  initialX?: number;
-  initialY?: number;
-  size?: number;
-  hoverRange?: number;
-  damageRange?: number;
-  actions?: ClaudeMascotActions;
-}
-
-export const defaultActions: ClaudeMascotActions = {
-  onClickStage: "walk",
-  onClickSprite: "hit",
-  onHoverNear: "touch",
-};
-
+export * from "./types";
 export { SPRITE_SHEET_URLS } from "./sprite-urls";
 
 export { default as ClaudeMascot1 } from "./claude-mascot-1/ClaudeMascot1";

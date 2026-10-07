@@ -1,13 +1,13 @@
 # Claude Spritez
 
-A gallery of 19 interactive, animated pixel-art Claude mascots for the web. Pick a mascot in the gallery, grab the install/import snippet, and drop it into your own React or Next.js app.
+A gallery of 20 interactive, animated pixel-art Claude mascots for the web. Pick a mascot in the gallery, grab the install/import snippet, and drop it into your own React or Next.js app.
 
 The npm package that ships these mascots (`claudesprites`) lives in [`package/sprites`](./package/sprites).
 
 ## Project structure
 
 ```
-app/collection/    Gallery pages, one folder per mascot (ClaudeMascot1 … ClaudeMascot19)
+app/collection/    Gallery pages, one folder per mascot (ClaudeMascot1 … ClaudeMascot20)
 components/        Shared UI: sprite cards, the detail sheet, code blocks, etc.
 lib/                Shared types (ClaudeMascotProps, animation states) and utils
 store/              Zustand store tracking sprites added to the "active" stage
@@ -35,7 +35,7 @@ Open [http://localhost:3000](http://localhost:3000) to browse the gallery.
 
 ## The `claudesprites` package
 
-Each mascot in the gallery corresponds to a named export (`ClaudeMascot1` … `ClaudeMascot19`) in the `claudesprites` package:
+Each mascot in the gallery corresponds to a named export (`ClaudeMascot1` … `ClaudeMascot20`) in the `claudesprites` package:
 
 ```bash
 npm install claudesprites

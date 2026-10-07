@@ -2,13 +2,14 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Check, ChevronLeft, ChevronRight, Copy } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Copy, Download } from "lucide-react";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetDescription,
+  SheetFooter,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { COLLECTION_CONFIG, CollectionConfig } from "@/app/collection/config";
@@ -23,26 +24,32 @@ interface SpriteDetailSheetProps {
 }
 
 interface CodeStepProps {
+  step: number;
   label: string;
   code: string;
-  lang: string;
+  lang: "bash" | "tsx";
   copied: boolean;
   onCopy: () => void;
 }
 
-const CodeStep = ({ label, code, lang, copied, onCopy }: CodeStepProps) => (
-  <div className="flex flex-col gap-3">
-    <label>{label}</label>
-    <div className="group flex items-center gap-2 justify-center ring ring-background rounded-lg my-auto relative px-3 py-4">
+const CodeStep = ({ step, label, code, lang, copied, onCopy }: CodeStepProps) => (
+  <div className="flex flex-col gap-2">
+    <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+      <span className="flex size-5 items-center justify-center rounded-full bg-muted text-[0.7rem] text-foreground tabular-nums">
+        {step}
+      </span>
+      {label}
+    </div>
+    <div className="flex items-center gap-2 rounded-lg border bg-muted/40 py-2.5 pr-1.5 pl-3">
       <CodeBlock
         code={code}
         lang={lang}
-        className="flex min-w-0 flex-1  overflow-x-auto whitespace-pre text-xs text-secondary-foreground [&_pre]:flex-1 [scrollbar-width:thin] [scrollbar-color:var(--border)_transparent] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-scrollbar [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-scrollbar"
+        className="scrollbar-thin min-w-0 flex-1 overflow-x-auto py-0.5 font-mono text-xs leading-relaxed whitespace-pre"
       />
       <Button
         size="icon-xs"
         variant="secondary"
-        className="shrink-0 absolute right-0 top-0 hidden group-hover:flex"
+        className="shrink-0 bg-transparent text-muted-foreground hover:bg-secondary hover:text-foreground"
         onClick={onCopy}
         aria-label={copied ? "Copied" : "Copy to clipboard"}
       >
@@ -62,14 +69,17 @@ const SpriteDetailSheet = ({
 
   if (!sprite) return null;
 
-  const variantNumber = sprite.label.match(/(\d+)\s*$/)?.[1] ?? "1";
-  const componentName = `ClaudeMascot${variantNumber}`;
-  const spriteSheetSrc = `/sprites/c${variantNumber}.png`;
-
   const activeIndex = COLLECTION_CONFIG.indexOf(sprite);
   const total = COLLECTION_CONFIG.length;
+  const variantNumber = activeIndex + 1;
+  const componentName = `ClaudeMascot${variantNumber}`;
+  const spriteSheetSrc = `/sprites/c${variantNumber}.png`;
   const prevSprite = COLLECTION_CONFIG[(activeIndex - 1 + total) % total];
   const nextSprite = COLLECTION_CONFIG[(activeIndex + 1) % total];
+
+  const installCode = "npm install claudesprites";
+  const importCode = `import { ${componentName} } from "claudesprites";\nimport "claudesprites/styles.css";`;
+  const useCode = `<${componentName} />`;
 
   const goTo = (next: CollectionConfig) => {
     setCopiedId("");
@@ -88,76 +98,84 @@ const SpriteDetailSheet = ({
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent side="right" className="overflow-y-auto">
-        <SheetHeader>
-          <SheetTitle className="lowercase">{sprite.label}</SheetTitle>
+      <SheetContent
+        side="right"
+        className="gap-0 overflow-hidden data-[side=right]:top-1/2 data-[side=right]:bottom-auto data-[side=right]:-translate-y-1/2 max-h-[calc(100dvh-2rem)]"
+      >
+        <SheetHeader className="border-b px-5 py-4 pr-14">
+          <SheetTitle className="capitalize">{sprite.label}</SheetTitle>
+          <SheetDescription className="font-mono text-xs">
+            {componentName} · {String(variantNumber).padStart(2, "0")}/
+            {String(total).padStart(2, "0")}
+          </SheetDescription>
         </SheetHeader>
 
-        <div className="flex flex-col gap-6 px-4 pb-6 ">
-          <div className="relative h-24 w-24 overflow-hidden rounded-lg ring ring-background border">
-            <div className="absolute inset-0 ">
+        <div className="scrollbar-thin flex min-h-0 flex-auto flex-col gap-6 overflow-y-auto px-5 pt-5 pb-5">
+          <div className="relative flex aspect-[16/9] w-full items-center justify-center overflow-hidden rounded-lg border bg-muted/30">
+            <div className="absolute inset-0 opacity-60">
               <Pattern />
             </div>
             <Image
               src={sprite.imgSrc}
               alt={sprite.label}
-              width={64}
-              height={64}
-              className="absolute inset-0 m-auto object-contain [image-rendering:pixelated]"
+              width={96}
+              height={96}
+              className="relative object-contain [image-rendering:pixelated]"
             />
           </div>
 
-          <div className="flex flex-col gap-y-5  p-2 ">
+          <div className="flex flex-col gap-5">
             <CodeStep
-              label="1. Install"
-              code="npm install claudesprites"
+              step={1}
+              label="Install"
+              code={installCode}
               lang="bash"
               copied={copiedId === "install"}
-              onCopy={() =>
-                handleCopy("npm install claudesprites", "install")
-              }
+              onCopy={() => handleCopy(installCode, "install")}
             />
             <CodeStep
-              label="2. Import"
-              code={`import { ${componentName} } from "claudesprites";\nimport "claudesprites/styles.css";`}
+              step={2}
+              label="Import"
+              code={importCode}
               lang="tsx"
               copied={copiedId === "import"}
-              onCopy={() =>
-                handleCopy(
-                  `import { ${componentName} } from "claudesprites";\nimport "claudesprites/styles.css";`,
-                  "import",
-                )
-              }
+              onCopy={() => handleCopy(importCode, "import")}
             />
             <CodeStep
-              label="3. Use"
-              code={`<${componentName} />`}
+              step={3}
+              label="Use"
+              code={useCode}
               lang="tsx"
               copied={copiedId === "use"}
-              onCopy={() => handleCopy(`<${componentName} />`, "use")}
+              onCopy={() => handleCopy(useCode, "use")}
             />
           </div>
-          <Button>Download Sprite Sheet</Button>
-
-          <div className="flex items-center justify-between gap-2">
-            <Button
-              variant="secondary"
-              size="icon-sm"
-              onClick={() => goTo(prevSprite)}
-              aria-label="Previous sprite"
-            >
-              <ChevronLeft />
-            </Button>
-            <Button
-              variant="secondary"
-              size="icon-sm"
-              onClick={() => goTo(nextSprite)}
-              aria-label="Next sprite"
-            >
-              <ChevronRight />
-            </Button>
-          </div>
         </div>
+
+        <SheetFooter className="mt-0 flex-row items-center gap-2 border-t px-5 py-3">
+          <Button
+            variant="secondary"
+            size="icon-sm"
+            onClick={() => goTo(prevSprite)}
+            aria-label="Previous sprite"
+          >
+            <ChevronLeft />
+          </Button>
+          <Button asChild size="sm" className="flex-1">
+            <a href={spriteSheetSrc} download={`claude-mascot-${variantNumber}.png`}>
+              <Download />
+              Download sprite sheet
+            </a>
+          </Button>
+          <Button
+            variant="secondary"
+            size="icon-sm"
+            onClick={() => goTo(nextSprite)}
+            aria-label="Next sprite"
+          >
+            <ChevronRight />
+          </Button>
+        </SheetFooter>
       </SheetContent>
     </Sheet>
   );

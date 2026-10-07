@@ -2,9 +2,33 @@
   "name": "claudesprites",
   "version": "1.0.0",
   "description": "Interactive, floating pixel-art Claude mascot sprites for React and Next.js websites",
-  "types": "dist/index.d.ts",
+  "keywords": [
+    "claude",
+    "mascot",
+    "sprite",
+    "pixel-art",
+    "react",
+    "nextjs",
+    "animation",
+    "pet"
+  ],
+  "license": "MIT",
+  "author": "sumukhj1219",
+  "homepage": "https://github.com/sumukhj1219/spritez#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumukhj1219/spritez.git",
+    "directory": "package/sprites"
+  },
+  "bugs": {
+    "url": "https://github.com/sumukhj1219/spritez/issues"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "files": [
     "dist"
   ],
@@ -17,7 +41,9 @@
     "./styles.css": "./dist/claudesprites.css"
   },
   "scripts": {
-    "build": "vite build && tsc --emitDeclarationOnly --outDir dist --rootDir src"
+    "build": "vite build && tsc --emitDeclarationOnly --outDir dist --rootDir src",
+    "upload-sprites": "node --env-file-if-exists=.env scripts/upload-sprites.mjs",
+    "prepublishOnly": "node -e \"if(require('fs').readFileSync('src/sprite-urls.ts','utf8').includes('REPLACE_ME')){console.error('Sprite URLs are placeholders: run npm run upload-sprites first');process.exit(1)}\" && npm run build"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -25,9 +51,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.2",
-    "rollup-plugin-preserve-directives": "^0.4.0",
     "typescript": "^6.0.3",
-    "vite": "^8.0.16",
-    "vite-plugin-dts": "^5.0.2"
+    "vite": "^8.0.16"
   }
 }

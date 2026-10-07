@@ -85,3 +85,19 @@ npm run build
 ```
 
 Builds `src/index.ts` with Vite into `dist/` (ESM + CJS + type declarations + a single `styles.css`).
+
+### Sprite sheets
+
+The sprite sheets are served from Cloudinary. To (re)upload them from `public/sprites/` and regenerate `src/sprite-urls.ts`, put your credentials in `package/sprites/.env`:
+
+```bash
+CLOUDINARY_URL=cloudinary://<api_key>:<api_secret>@<cloud_name>
+```
+
+then run:
+
+```bash
+npm run upload-sprites
+```
+
+`npm publish` refuses to run while `src/sprite-urls.ts` still contains placeholder URLs.
