@@ -1,0 +1,3 @@
+# Not part of the website: the npm package source and the Chrome extension.
+package/
+extension/

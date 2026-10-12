@@ -2,6 +2,7 @@ import type { Metadata, MetadataRoute, Viewport } from "next";
 
 export const siteConfig = {
   name: "ClaudeSpritez",
+  url: "https://claudespritez.fun",
   description:
     "A curated collection of highly interactive, animated pixel-art Claude mascots for React and Next.js. Pick a sprite, copy the snippet, drop it in.",
   keywords: [
@@ -26,10 +27,14 @@ export const siteConfig = {
   themeColor: "#e8e5dc",
 };
 
+/**
+ * Base URL for canonical links, Open Graph images and the sitemap.
+ * Production always uses the real domain; Vercel preview deployments use their
+ * own URL so their links don't point at production.
+ */
 export function getSiteUrl(): string {
   if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL)
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  if (process.env.VERCEL_ENV === "production") return siteConfig.url;
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
   return "http://localhost:3000";
 }

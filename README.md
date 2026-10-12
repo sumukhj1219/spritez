@@ -2,6 +2,8 @@
 
 ClaudeSpritez is a collection of interactive, animated pixel-art Claude mascots for the web. Each mascot idles on the page, walks to wherever the visitor clicks, and reacts when the cursor comes near or clicks on it.
 
+Live site: [claudespritez.fun](https://claudespritez.fun)
+
 The project has three parts:
 
 | Part | Location | Description |
@@ -63,7 +65,7 @@ The site is then available at [http://localhost:3000](http://localhost:3000).
 
 | Variable | Required | Description |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | In production | The public URL of the site, for example `https://example.com`. Used for canonical URLs, Open Graph images, and the sitemap. On Vercel, the production URL is used when this is not set. |
+| `NEXT_PUBLIC_SITE_URL` | No | Overrides the public URL of the site, which is used for canonical URLs, Open Graph images, and the sitemap. When it is not set, Vercel production deployments use `https://claudespritez.fun` and preview deployments use their own URL. |
 
 ## Installing the Chrome extension
 
