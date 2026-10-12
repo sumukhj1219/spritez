@@ -42,8 +42,9 @@ const Heading = () => {
           A curated collection of highly interactive sprites of claude.
         </h3>
         <div className="sm:text-lg text-xs text-left sm:my-5 my-3 w-full flex overflow-hidden flex-row items-stretch sm:items-center gap-3">
-          <div className="flex min-w-0 sm:shrink-0 overflow-x-auto  border px-3 md:py-1  rounded-lg inset-shadow-xs inset-shadow-white bg-secondary">
-            <code className="flex sm:block items-center justify-center">
+          <div className="flex h-9 min-w-0 items-center sm:shrink-0 border px-3 rounded-lg inset-shadow-xs inset-shadow-white bg-secondary">
+            {/* One line only: on narrow screens it ends in an ellipsis instead of wrapping. */}
+            <code className="block truncate" title={command}>
               {command}
             </code>
           </div>
