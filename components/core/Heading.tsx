@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import dynamic from "next/dynamic";
 import { m } from "framer-motion";
+import GithubIcon from "@/components/svgs/GithubIcon";
+import { siteConfig } from "@/lib/seo";
 
 // WebGL only exists in the browser, and three.js stays out of the initial bundle.
 const CloudBanner = dynamic(() => import("./CloudBanner"), { ssr: false });
@@ -56,6 +58,16 @@ const Heading = () => {
               <span className={copied ? "invisible" : undefined}>Copy</span>
               <span className={copied ? undefined : "invisible"}>Copied!</span>
             </span>
+          </Button>
+          <Button asChild variant="secondary" size="icon-lg" className="shrink-0">
+            <a
+              href={siteConfig.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View the source on GitHub"
+            >
+              <GithubIcon className="size-5" />
+            </a>
           </Button>
           {SHOW_EXTENSION && (
             <button
